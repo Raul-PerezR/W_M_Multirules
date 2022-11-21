@@ -3,7 +3,7 @@ Software used at work "A new multi-rules approach to improve the performance of 
 
 ## How to compile?
 
-cd code
+cd src
 
 make
 
