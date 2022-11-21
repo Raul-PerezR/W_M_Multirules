@@ -1,0 +1,745 @@
+42
+Atr-0
+0
+0
+0
+0
+90
+5
+0 0 0 22.5 VL
+0 22.5 22.5 45 L
+22.5 45 45 67.5 M
+45 67.5 67.5 90 H
+67.5 90 90 90 VH
+Atr-1
+0
+0
+0
+0
+8
+9
+0 0 0 0 Self-employed-not_incorporated
+1 1 1 1 Not_in_universe
+2 2 2 2 Private
+3 3 3 3 Local_government
+4 4 4 4 Federal_government
+5 5 5 5 Self-employed-incorporated
+6 6 6 6 State_government
+7 7 7 7 Never_worked
+8 8 8 8 Without_pay
+Atr-2
+0
+0
+0
+0
+51
+5
+0 0 0 12.75 VL
+0 12.75 12.75 25.5 L
+12.75 25.5 25.5 38.25 M
+25.5 38.25 38.25 51 H
+38.25 51 51 51 VH
+Atr-3
+0
+0
+0
+0
+46
+5
+0 0 0 11.5 VL
+0 11.5 11.5 23 L
+11.5 23 23 34.5 M
+23 34.5 34.5 46 H
+34.5 46 46 46 VH
+Atr-4
+0
+0
+0
+0
+16
+17
+0 0 0 0 Some_college_but_no_degree
+1 1 1 1 10th_grade
+2 2 2 2 Children
+3 3 3 3 Bachelors_degree(BA_AB_BS)
+4 4 4 4 High_school_graduate
+5 5 5 5 Masters_degree(MA_MS_MEng_MEd_MSW_MBA)
+6 6 6 6 Less_than_1st_grade
+7 7 7 7 Associates_degree-academic_program
+8 8 8 8 7th_and_8th_grade
+9 9 9 9 12th_grade_no_diploma
+10 10 10 10 Associates_degree-occup_/vocational
+11 11 11 11 Prof_school_degree_(MD_DDS_DVM_LLB_JD)
+12 12 12 12 5th_or_6th_grade
+13 13 13 13 11th_grade
+14 14 14 14 Doctorate_degree(PhD_EdD)
+15 15 15 15 9th_grade
+16 16 16 16 1st_2nd_3rd_or_4th_grade
+Atr-5
+0
+0
+0
+0
+9999
+5
+0 0 0 2499.75 VL
+0 2499.75 2499.75 4999.5 L
+2499.75 4999.5 4999.5 7499.25 M
+4999.5 7499.25 7499.25 9999 H
+7499.25 9999 9999 9999 VH
+Atr-6
+0
+0
+0
+0
+2
+3
+0 0 0 0 Not_in_universe
+1 1 1 1 High_school
+2 2 2 2 College_or_university
+Atr-7
+0
+0
+0
+0
+6
+7
+0 0 0 0 Divorced
+1 1 1 1 Never_married
+2 2 2 2 Married-civilian_spouse_present
+3 3 3 3 Widowed
+4 4 4 4 Separated
+5 5 5 5 Married-spouse_absent
+6 6 6 6 Married-A_F_spouse_present
+Atr-8
+0
+0
+0
+0
+23
+24
+0 0 0 0 Construction
+1 1 1 1 Not_in_universe_or_children
+2 2 2 2 Entertainment
+3 3 3 3 Finance_insurance_and_real_estate
+4 4 4 4 Education
+5 5 5 5 Business_and_repair_services
+6 6 6 6 Manufacturing-nondurable_goods
+7 7 7 7 Personal_services_except_private_HH
+8 8 8 8 Manufacturing-durable_goods
+9 9 9 9 Other_professional_services
+10 10 10 10 Mining
+11 11 11 11 Transportation
+12 12 12 12 Wholesale_trade
+13 13 13 13 Public_administration
+14 14 14 14 Retail_trade
+15 15 15 15 Social_services
+16 16 16 16 Private_household_services
+17 17 17 17 Utilities_and_sanitary_services
+18 18 18 18 Communications
+19 19 19 19 Hospital_services
+20 20 20 20 Medical_except_hospital
+21 21 21 21 Agriculture
+22 22 22 22 Forestry_and_fisheries
+23 23 23 23 Armed_Forces
+Atr-9
+0
+0
+0
+0
+14
+15
+0 0 0 0 Precision_production_craft_&_repair
+1 1 1 1 Not_in_universe
+2 2 2 2 Professional_specialty
+3 3 3 3 Executive_admin_and_managerial
+4 4 4 4 Handlers_equip_cleaners_etc
+5 5 5 5 Adm_support_including_clerical
+6 6 6 6 Machine_operators_assmblrs_&_inspctrs
+7 7 7 7 Other_service
+8 8 8 8 Sales
+9 9 9 9 Private_household_services
+10 10 10 10 Technicians_and_related_support
+11 11 11 11 Transportation_and_material_moving
+12 12 12 12 Farming_forestry_and_fishing
+13 13 13 13 Protective_services
+14 14 14 14 Armed_Forces
+Atr-10
+0
+0
+0
+0
+4
+5
+0 0 0 0 White
+1 1 1 1 Asian_or_Pacific_Islander
+2 2 2 2 Amer_Indian_Aleut_or_Eskimo
+3 3 3 3 Black
+4 4 4 4 Other
+Atr-11
+0
+0
+0
+0
+9
+10
+0 0 0 0 All_other
+1 1 1 1 Do_not_know
+2 2 2 2 Central_or_South_American
+3 3 3 3 Mexican_(Mexicano)
+4 4 4 4 Mexican-American
+5 5 5 5 Other_Spanish
+6 6 6 6 Puerto_Rican
+7 7 7 7 Cuban
+8 8 8 8 Chicano
+9 9 9 9 NA
+Atr-12
+0
+0
+0
+0
+1
+2
+0 0 0 0 Male
+1 1 1 1 Female
+Atr-13
+0
+0
+0
+0
+2
+3
+0 0 0 0 Not_in_universe
+1 1 1 1 No
+2 2 2 2 Yes
+Atr-14
+0
+0
+0
+0
+5
+6
+0 0 0 0 Not_in_universe
+1 1 1 1 Job_loser_-_on_layoff
+2 2 2 2 Other_job_loser
+3 3 3 3 New_entrant
+4 4 4 4 Re-entrant
+5 5 5 5 Job_leaver
+Atr-15
+0
+0
+0
+0
+7
+8
+0 0 0 0 Children_or_Armed_Forces
+1 1 1 1 Not_in_labor_force
+2 2 2 2 Full-time_schedules
+3 3 3 3 Unemployed_full-time
+4 4 4 4 Unemployed_part-_time
+5 5 5 5 PT_for_non-econ_reasons_usually_FT
+6 6 6 6 PT_for_econ_reasons_usually_PT
+7 7 7 7 PT_for_econ_reasons_usually_FT
+Atr-16
+0
+0
+0
+0
+99999
+5
+0 0 0 24999.8 VL
+0 24999.8 24999.8 49999.5 L
+24999.8 49999.5 49999.5 74999.2 M
+49999.5 74999.2 74999.2 99999 H
+74999.2 99999 99999 99999 VH
+Atr-17
+0
+0
+0
+0
+4608
+5
+0 0 0 1152 VL
+0 1152 1152 2304 L
+1152 2304 2304 3456 M
+2304 3456 3456 4608 H
+3456 4608 4608 4608 VH
+Atr-18
+0
+0
+0
+0
+99999
+5
+0 0 0 24999.8 VL
+0 24999.8 24999.8 49999.5 L
+24999.8 49999.5 49999.5 74999.2 M
+49999.5 74999.2 74999.2 99999 H
+74999.2 99999 99999 99999 VH
+Atr-19
+0
+0
+0
+0
+5
+6
+0 0 0 0 Head_of_household
+1 1 1 1 Nonfiler
+2 2 2 2 Joint_both_under_65
+3 3 3 3 Single
+4 4 4 4 Joint_both_65+
+5 5 5 5 Joint_one_under_65_&_one_65+
+Atr-20
+0
+0
+0
+0
+5
+6
+0 0 0 0 South
+1 1 1 1 Not_in_universe
+2 2 2 2 Northeast
+3 3 3 3 Midwest
+4 4 4 4 West
+5 5 5 5 Abroad
+Atr-21
+0
+0
+0
+0
+49
+50
+0 0 0 0 Arkansas
+1 1 1 1 Not_in_universe
+2 2 2 2 Utah
+3 3 3 3 Michigan
+4 4 4 4 Minnesota
+5 5 5 5 Alaska
+6 6 6 6 Kansas
+7 7 7 7 Indiana
+8 8 8 8 Massachusetts
+9 9 9 9 New_Mexico
+10 10 10 10 Nevada
+11 11 11 11 Tennessee
+12 12 12 12 Colorado
+13 13 13 13 Abroad
+14 14 14 14 Kentucky
+15 15 15 15 California
+16 16 16 16 Arizona
+17 17 17 17 North_Carolina
+18 18 18 18 Connecticut
+19 19 19 19 Florida
+20 20 20 20 Vermont
+21 21 21 21 Maryland
+22 22 22 22 Oklahoma
+23 23 23 23 Oregon
+24 24 24 24 Ohio
+25 25 25 25 South_Carolina
+26 26 26 26 Texas
+27 27 27 27 Montana
+28 28 28 28 Wyoming
+29 29 29 29 Georgia
+30 30 30 30 Pennsylvania
+31 31 31 31 Iowa
+32 32 32 32 New_Hampshire
+33 33 33 33 Missouri
+34 34 34 34 Alabama
+35 35 35 35 North_Dakota
+36 36 36 36 New_Jersey
+37 37 37 37 Louisiana
+38 38 38 38 West_Virginia
+39 39 39 39 Delaware
+40 40 40 40 Illinois
+41 41 41 41 Maine
+42 42 42 42 Wisconsin
+43 43 43 43 New_York
+44 44 44 44 Idaho
+45 45 45 45 District_of_Columbia
+46 46 46 46 South_Dakota
+47 47 47 47 Nebraska
+48 48 48 48 Virginia
+49 49 49 49 Mississippi
+Atr-22
+0
+0
+0
+0
+37
+38
+0 0 0 0 Householder
+1 1 1 1 Child_18+_never_marr_Not_in_a_subfamily
+2 2 2 2 Child_<18_never_marr_not_in_subfamily
+3 3 3 3 Spouse_of_householder
+4 4 4 4 Secondary_individual
+5 5 5 5 Other_Rel_18+_never_marr_not_in_subfamily
+6 6 6 6 Nonfamily_householder
+7 7 7 7 Grandchild_<18_never_marr_not_in_subfamily
+8 8 8 8 Grandchild_<18_never_marr_child_of_subfamily_RP
+9 9 9 9 Child_18+_ever_marr_Not_in_a_subfamily
+10 10 10 10 Child_18+_never_marr_RP_of_subfamily
+11 11 11 11 Child_18+_spouse_of_subfamily_RP
+12 12 12 12 Other_Rel_<18_never_marr_child_of_subfamily_RP
+13 13 13 13 Child_under_18_of_RP_of_unrel_subfamily
+14 14 14 14 Grandchild_18+_never_marr_not_in_subfamily
+15 15 15 15 Child_18+_ever_marr_RP_of_subfamily
+16 16 16 16 Other_Rel_18+_ever_marr_RP_of_subfamily
+17 17 17 17 Other_Rel_18+_ever_marr_not_in_subfamily
+18 18 18 18 RP_of_unrelated_subfamily
+19 19 19 19 Other_Rel_18+_spouse_of_subfamily_RP
+20 20 20 20 Other_Rel_<18_never_marr_not_in_subfamily
+21 21 21 21 Other_Rel_<18_spouse_of_subfamily_RP
+22 22 22 22 In_group_quarters
+23 23 23 23 Grandchild_18+_spouse_of_subfamily_RP
+24 24 24 24 Other_Rel_18+_never_marr_RP_of_subfamily
+25 25 25 25 Child_<18_never_marr_RP_of_subfamily
+26 26 26 26 Child_<18_ever_marr_not_in_subfamily
+27 27 27 27 Other_Rel_<18_ever_marr_RP_of_subfamily
+28 28 28 28 Grandchild_18+_ever_marr_not_in_subfamily
+29 29 29 29 Child_<18_spouse_of_subfamily_RP
+30 30 30 30 Spouse_of_RP_of_unrelated_subfamily
+31 31 31 31 Other_Rel_<18_never_married_RP_of_subfamily
+32 32 32 32 Grandchild_18+_never_marr_RP_of_subfamily
+33 33 33 33 Grandchild_18+_ever_marr_RP_of_subfamily
+34 34 34 34 Child_<18_ever_marr_RP_of_subfamily
+35 35 35 35 Other_Rel_<18_ever_marr_not_in_subfamily
+36 36 36 36 Grandchild_<18_never_marr_RP_of_subfamily
+37 37 37 37 Grandchild_<18_ever_marr_not_in_subfamily
+Atr-23
+0
+0
+0
+0
+7
+8
+0 0 0 0 Householder
+1 1 1 1 Child_18_or_older
+2 2 2 2 Child_under_18_never_married
+3 3 3 3 Spouse_of_householder
+4 4 4 4 Nonrelative_of_householder
+5 5 5 5 Other_relative_of_householder
+6 6 6 6 Group_Quarters-_Secondary_individual
+7 7 7 7 Child_under_18_ever_married
+Atr-24
+0
+0
+0
+37.87
+18656.3
+5
+37.87 37.87 37.87 4692.48 VL
+37.87 4692.48 4692.48 9347.09 L
+4692.48 9347.09 9347.09 14001.7 M
+9347.09 14001.7 14001.7 18656.3 H
+14001.7 18656.3 18656.3 18656.3 VH
+Atr-25
+0
+0
+0
+0
+8
+9
+0 0 0 0 MSA_to_MSA
+1 1 1 1 Nonmover
+2 2 2 2 NonMSA_to_nonMSA
+3 3 3 3 Not_in_universe
+4 4 4 4 Not_identifiable
+5 5 5 5 Abroad_to_MSA
+6 6 6 6 MSA_to_nonMSA
+7 7 7 7 Abroad_to_nonMSA
+8 8 8 8 NonMSA_to_MSA
+Atr-26
+0
+0
+0
+0
+7
+8
+0 0 0 0 Same_county
+1 1 1 1 Nonmover
+2 2 2 2 Different_region
+3 3 3 3 Different_county_same_state
+4 4 4 4 Not_in_universe
+5 5 5 5 Different_division_same_region
+6 6 6 6 Abroad
+7 7 7 7 Different_state_same_division
+Atr-27
+0
+0
+0
+0
+8
+9
+0 0 0 0 Same_county
+1 1 1 1 Nonmover
+2 2 2 2 Different_state_in_South
+3 3 3 3 Different_county_same_state
+4 4 4 4 Not_in_universe
+5 5 5 5 Different_state_in_Northeast
+6 6 6 6 Abroad
+7 7 7 7 Different_state_in_Midwest
+8 8 8 8 Different_state_in_West
+Atr-28
+0
+0
+0
+0
+2
+3
+0 0 0 0 No
+1 1 1 1 Not_in_universe_under_1_year_old
+2 2 2 2 Yes
+Atr-29
+0
+0
+0
+0
+2
+3
+0 0 0 0 Yes
+1 1 1 1 Not_in_universe
+2 2 2 2 No
+Atr-30
+0
+0
+0
+0
+6
+7
+0 0 0 0 0
+1 1 1 1 1
+2 2 2 2 2
+3 3 3 3 3
+4 4 4 4 4
+5 5 5 5 5
+6 6 6 6 6
+Atr-31
+0
+0
+0
+0
+4
+5
+0 0 0 0 Not_in_universe
+1 1 1 1 Both_parents_present
+2 2 2 2 Mother_only_present
+3 3 3 3 Neither_parent_present
+4 4 4 4 Father_only_present
+Atr-32
+0
+0
+0
+0
+41
+42
+0 0 0 0 United-States
+1 1 1 1 Vietnam
+2 2 2 2 Philippines
+3 3 3 3 Columbia
+4 4 4 4 Germany
+5 5 5 5 Mexico
+6 6 6 6 Japan
+7 7 7 7 Peru
+8 8 8 8 Dominican-Republic
+9 9 9 9 South_Korea
+10 10 10 10 Cuba
+11 11 11 11 El-Salvador
+12 12 12 12 Canada
+13 13 13 13 Scotland
+14 14 14 14 Outlying-U_S_(Guam_USVI_etc)
+15 15 15 15 Italy
+16 16 16 16 Guatemala
+17 17 17 17 Ecuador
+18 18 18 18 Puerto-Rico
+19 19 19 19 Cambodia
+20 20 20 20 China
+21 21 21 21 Poland
+22 22 22 22 Nicaragua
+23 23 23 23 Taiwan
+24 24 24 24 England
+25 25 25 25 Ireland
+26 26 26 26 Hungary
+27 27 27 27 Yugoslavia
+28 28 28 28 Trinadad&Tobago
+29 29 29 29 Jamaica
+30 30 30 30 Honduras
+31 31 31 31 Portugal
+32 32 32 32 Iran
+33 33 33 33 France
+34 34 34 34 India
+35 35 35 35 Hong_Kong
+36 36 36 36 Haiti
+37 37 37 37 Greece
+38 38 38 38 Holand-Netherlands
+39 39 39 39 Thailand
+40 40 40 40 Laos
+41 41 41 41 Panama
+Atr-33
+0
+0
+0
+0
+41
+42
+0 0 0 0 United-States
+1 1 1 1 Vietnam
+2 2 2 2 Columbia
+3 3 3 3 Mexico
+4 4 4 4 El-Salvador
+5 5 5 5 Peru
+6 6 6 6 Puerto-Rico
+7 7 7 7 Cuba
+8 8 8 8 Philippines
+9 9 9 9 Dominican-Republic
+10 10 10 10 Germany
+11 11 11 11 England
+12 12 12 12 Guatemala
+13 13 13 13 Scotland
+14 14 14 14 Portugal
+15 15 15 15 Italy
+16 16 16 16 Ecuador
+17 17 17 17 Yugoslavia
+18 18 18 18 China
+19 19 19 19 Poland
+20 20 20 20 Hungary
+21 21 21 21 Nicaragua
+22 22 22 22 Taiwan
+23 23 23 23 Ireland
+24 24 24 24 Canada
+25 25 25 25 South_Korea
+26 26 26 26 Trinadad&Tobago
+27 27 27 27 Jamaica
+28 28 28 28 Honduras
+29 29 29 29 Iran
+30 30 30 30 France
+31 31 31 31 Cambodia
+32 32 32 32 India
+33 33 33 33 Hong_Kong
+34 34 34 34 Haiti
+35 35 35 35 Japan
+36 36 36 36 Greece
+37 37 37 37 Holand-Netherlands
+38 38 38 38 Thailand
+39 39 39 39 Panama
+40 40 40 40 Laos
+41 41 41 41 Outlying-U_S_(Guam_USVI_etc)
+Atr-34
+0
+0
+0
+0
+41
+42
+0 0 0 0 United-States
+1 1 1 1 Vietnam
+2 2 2 2 Columbia
+3 3 3 3 Mexico
+4 4 4 4 Peru
+5 5 5 5 Cuba
+6 6 6 6 Philippines
+7 7 7 7 Dominican-Republic
+8 8 8 8 El-Salvador
+9 9 9 9 Canada
+10 10 10 10 Scotland
+11 11 11 11 Portugal
+12 12 12 12 Guatemala
+13 13 13 13 Ecuador
+14 14 14 14 Germany
+15 15 15 15 Outlying-U_S_(Guam_USVI_etc)
+16 16 16 16 Puerto-Rico
+17 17 17 17 Italy
+18 18 18 18 China
+19 19 19 19 Poland
+20 20 20 20 Nicaragua
+21 21 21 21 Taiwan
+22 22 22 22 England
+23 23 23 23 Ireland
+24 24 24 24 South_Korea
+25 25 25 25 Trinadad&Tobago
+26 26 26 26 Jamaica
+27 27 27 27 Honduras
+28 28 28 28 Iran
+29 29 29 29 Hungary
+30 30 30 30 France
+31 31 31 31 Cambodia
+32 32 32 32 India
+33 33 33 33 Hong_Kong
+34 34 34 34 Japan
+35 35 35 35 Haiti
+36 36 36 36 Holand-Netherlands
+37 37 37 37 Greece
+38 38 38 38 Thailand
+39 39 39 39 Panama
+40 40 40 40 Yugoslavia
+41 41 41 41 Laos
+Atr-35
+0
+0
+0
+0
+4
+5
+0 0 0 0 Native-_Born_in_the_United_States
+1 1 1 1 Foreign_born-_Not_a_citizen_of_U_S
+2 2 2 2 Foreign_born-_U_S_citizen_by_naturalization
+3 3 3 3 Native-_Born_abroad_of_American_Parent(s)
+4 4 4 4 Native-_Born_in_Puerto_Rico_or_U_S_Outlying
+Atr-36
+0
+0
+0
+0
+2
+3
+0 0 0 0 0
+1 1 1 1 1
+2 2 2 2 2
+Atr-37
+0
+0
+0
+0
+2
+3
+0 0 0 0 Not_in_universe
+1 1 1 1 No
+2 2 2 2 Yes
+Atr-38
+0
+0
+0
+0
+2
+3
+0 0 0 0 0
+1 1 1 1 1
+2 2 2 2 2
+Atr-39
+0
+0
+0
+0
+52
+5
+0 0 0 13 VL
+0 13 13 26 L
+13 26 26 39 M
+26 39 39 52 H
+39 52 52 52 VH
+Atr-40
+0
+0
+0
+94
+95
+2
+94 94 94 94 94
+95 95 95 95 95
+Class
+1
+0
+0
+0
+1
+2
+0 0 0 0 -_50000.
+1 1 1 1 50000+.

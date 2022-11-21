@@ -1,0 +1,729 @@
+30
+CASE_STATE
+0
+0
+0
+0
+51
+52
+0 0 0 0 Alabama
+1 1 1 1 Alaska
+2 2 2 2 Arizona
+3 3 3 3 Arkansas
+4 4 4 4 California
+5 5 5 5 Colorado
+6 6 6 6 Connecticut
+7 7 7 7 Delaware
+8 8 8 8 District_of_Columbia
+9 9 9 9 Florida
+10 10 10 10 Georgia
+11 11 11 11 Hawaii
+12 12 12 12 Idaho
+13 13 13 13 Illinois
+14 14 14 14 Indiana
+15 15 15 15 Iowa
+16 16 16 16 Kansas
+17 17 17 17 Kentucky
+18 18 18 18 Louisiana
+19 19 19 19 Maine
+20 20 20 20 Maryland
+21 21 21 21 Massachusetts
+22 22 22 22 Michigan
+23 23 23 23 Minnesota
+24 24 24 24 Mississippi
+25 25 25 25 Missouri
+26 26 26 26 Montana
+27 27 27 27 Nebraska
+28 28 28 28 Nevada
+29 29 29 29 New_Hampshire
+30 30 30 30 New_Jersey
+31 31 31 31 New_Mexico
+32 32 32 32 New_York
+33 33 33 33 North_Carolina
+34 34 34 34 North_Dakota
+35 35 35 35 Ohio
+36 36 36 36 Oklahoma
+37 37 37 37 Oregon
+38 38 38 38 Pennsylvania
+39 39 39 39 Puerto_Rico
+40 40 40 40 Rhode_Island
+41 41 41 41 South_Carolina
+42 42 42 42 South_Dakota
+43 43 43 43 Tennessee
+44 44 44 44 Texas
+45 45 45 45 Utah
+46 46 46 46 Vermont
+47 47 47 47 Virginia
+48 48 48 48 Washington
+49 49 49 49 West_Virginia
+50 50 50 50 Wisconsin
+51 51 51 51 Wyoming
+AGE
+0
+0
+0
+0
+99
+5
+0 0 0 24.75 VL
+0 24.75 24.75 49.5 L
+24.75 49.5 49.5 74.25 M
+49.5 74.25 74.25 99 H
+74.25 99 99 99 VH
+SEX
+0
+0
+0
+0
+2
+3
+0 0 0 0 Male
+1 1 1 1 Female
+2 2 2 2 Unknown
+PERSON_TYPE
+0
+0
+0
+0
+10
+11
+0 0 0 0 Driver
+1 1 1 1 Passenger_of_a_Motor_Vehicle_in_Transport
+2 2 2 2 Occupant_of_a_Motor_Vehicle_Not_in_Transport
+3 3 3 3 Occupant_of_a_Non-Motor_Vehicle_Transport_Device
+4 4 4 4 Pedestrian
+5 5 5 5 Bicyclist
+6 6 6 6 Other_Cyclist
+7 7 7 7 Other_Pedestrian
+8 8 8 8 Unknown_Occupant_Type_in_a_Motor_Vehicle_in_Transport
+9 9 9 9 Unknown_Type_of_Non-Motorist
+10 10 10 10 Unknown
+SEATING_POSITION
+0
+0
+0
+0
+27
+28
+0 0 0 0 Non-Motorist
+1 1 1 1 Front_Seat_-_Left_Side_(Drivers_Side)
+2 2 2 2 Front_Seat_-_Middle
+3 3 3 3 Front_Seat_-_Right_Side
+4 4 4 4 Front_Seat_-_Other
+5 5 5 5 Front_Seat_-_Unknown
+6 6 6 6 Second_Seat_-_Left_Side
+7 7 7 7 Second_Seat_-_Middle
+8 8 8 8 Second_Seat_-_Right_Side
+9 9 9 9 Second_Seat_-_Other
+10 10 10 10 Second_Seat_-_Unknown
+11 11 11 11 Third_Seat_-_Left_Side_(Drivers_Side)
+12 12 12 12 Third_Seat_-_Middle
+13 13 13 13 Third_Seat_-_Right_Side
+14 14 14 14 Third_Seat_-_Other
+15 15 15 15 Third_Seat_-_Unknown
+16 16 16 16 Fourth_Seat_-_Left_Side
+17 17 17 17 Fourth_Seat_-_Middle
+18 18 18 18 Fourth_Seat_-_Right_Side
+19 19 19 19 Fourth_Seat_-_Other
+20 20 20 20 Fourth_Seat_-_Unknown
+21 21 21 21 Sleeper_Section_of_Cab_(Truck)
+22 22 22 22 Other_Passenger_in_enclosed_passenger_or_cargo_area
+23 23 23 23 Other_Passenger_in_unenclosed_passenger_or_cargo_area
+24 24 24 24 Other_Passenger_in_passenger_or_cargo_area_(unknown_whether_or_not_enclosed)
+25 25 25 25 Trailing_Unit
+26 26 26 26 Riding_on_Vehicle_Exterior
+27 27 27 27 Unknown
+RESTRAINT_SYSTEM-USE
+0
+0
+0
+0
+11
+12
+0 0 0 0 None_Used/Not_Applicable
+1 1 1 1 Shoulder_Belt
+2 2 2 2 Lap_Belt
+3 3 3 3 Lap_and_Shoulder_Belt
+4 4 4 4 Child_Safety_Seat
+5 5 5 5 Motorcycle_Helmet
+6 6 6 6 Bicycle_Helmet
+7 7 7 7 Restraint_Used_-_Type_Unknown
+8 8 8 8 Safety_Belt_Used_Improperly
+9 9 9 9 Child_Safety_Seat_Used_Improperly
+10 10 10 10 Helmets_Used_Improperly
+11 11 11 11 Unknown
+AIR_BAG_AVAILABILITY/DEPLOYMENT
+0
+0
+0
+0
+12
+13
+0 0 0 0 Non-Motorist
+1 1 1 1 Deployed_Air_Bag_from_Front
+2 2 2 2 Deployed_Air_Bag_from_Side
+3 3 3 3 Deployed_Air_Bag_Other_Direction
+4 4 4 4 Deployed_Air_Bag_Multiple_Directions
+5 5 5 5 Deployed_Air_Bag_Direction_Unknown
+6 6 6 6 Air_Bag_Available_but_Not_Deployed_for_this_Seat
+7 7 7 7 Air_Bag_Available_and_Switched_Off
+8 8 8 8 Air_Bad_Available-Deployment_Not_Known_for_this_Seat
+9 9 9 9 Air_Bag_Not_Available_for_this_Seat
+10 10 10 10 Air_Bag_Previously_Deployed_and_not_Replaced
+11 11 11 11 Air_Bag_Disabled_or_Removed
+12 12 12 12 Unknown_(If_Airbag_Available)
+EJECTION
+0
+0
+0
+0
+3
+4
+0 0 0 0 Not_Ejected
+1 1 1 1 Totally_Ejected
+2 2 2 2 Partially_Ejected
+3 3 3 3 Unknown
+EJECTION_PATH
+0
+0
+0
+0
+9
+10
+0 0 0 0 Not_Ejected/Not_Applicable
+1 1 1 1 Through_Side_Door_Opening
+2 2 2 2 Through_Side_Window
+3 3 3 3 Through_Windshield
+4 4 4 4 Through_Back_Window
+5 5 5 5 Through_Back_Door/Tailgate
+6 6 6 6 Through_Roof_Opening
+7 7 7 7 Through_Roof_(convertible_top_up)
+8 8 8 8 Other_Path_(e.g._back_of_pickup)
+9 9 9 9 Unknown
+EXTRICATION
+0
+0
+0
+0
+2
+3
+0 0 0 0 Not_Extricated
+1 1 1 1 Extricated
+2 2 2 2 Unknown
+NON_MOTORIST_LOCATION
+0
+0
+0
+0
+17
+18
+0 0 0 0 Not_Applicable_-_Vehicle_Occupant
+1 1 1 1 Intersection_-_In_Crosswalk
+2 2 2 2 Intersection_-_On_Roadway_Not_in_Crosswalk
+3 3 3 3 Intersection_-_On_Roadway_Crosswalk_not_Available
+4 4 4 4 Intersection_-_On_Roadway_Crosswalk_Availability_Unknown
+5 5 5 5 Intersection_-_Not_on_Roadway
+6 6 6 6 Intersection_-_Unknown
+7 7 7 7 Non-Intersection_-_In_Crosswalk
+8 8 8 8 Non-Intersection_-_On_Roadway_Not_in_Crosswalk
+9 9 9 9 Non-Intersection_-_On_Roadway_Crosswalk_not_Available
+10 10 10 10 Non-Intersection_-_On_Roadway_Crosswalk_Availability_Unknown
+11 11 11 11 Non-Intersection_-_In_Parking_Lane
+12 12 12 12 Non-Intersection_-_On_Road_Shoulder
+13 13 13 13 Non-Intersection_-_Bike_Path
+14 14 14 14 Non-Intersection_-_Outside_Trafficway
+15 15 15 15 Non-Intersection_-_Other_Not_a_Roadway
+16 16 16 16 Non-Intersection_-_Unknown
+17 17 17 17 Unknown
+POLICE_REPORTED_ALCOHOL_INVOLVEMENT
+0
+0
+0
+0
+3
+4
+0 0 0 0 No_(Alcohol_Not_Involved)
+1 1 1 1 Yes_(Alcohol_Involved)
+2 2 2 2 Not_reported
+3 3 3 3 Unknown_(Police_Reported)
+METHOD_ALCOHOL_DETERMINATION
+0
+0
+0
+0
+6
+7
+0 0 0 0 Evidential_Test_(Breath_Blood_Urine)
+1 1 1 1 Preliminary_Breath_Test_(PBT)
+2 2 2 2 Behavioral
+3 3 3 3 Passive_Alcohol_Sensor_(PAS)
+4 4 4 4 Observed
+5 5 5 5 Other_(e.g._Saliva_test)
+6 6 6 6 Not_Reported
+ALCOHOL_TEST_TYPE
+0
+0
+0
+0
+9
+10
+0 0 0 0 Not_Tested_for_Alcohol
+1 1 1 1 Whole_Blood
+2 2 2 2 Breath_BAC
+3 3 3 3 Urine
+4 4 4 4 Vitreous
+5 5 5 5 Blood_Plasma/Serum
+6 6 6 6 Blood_Clot
+7 7 7 7 Liver
+8 8 8 8 Other_Test_Type
+9 9 9 9 Unknown(Not_Reported_Since_2001)
+ALCOHOL_TEST_RESULT
+0
+0
+0
+0
+99
+5
+0 0 0 24.75 VL
+0 24.75 24.75 49.5 L
+24.75 49.5 49.5 74.25 M
+49.5 74.25 74.25 99 H
+74.25 99 99 99 VH
+POLICE-REPORTED_DRUG_INVOLVEMENT
+0
+0
+0
+0
+3
+4
+0 0 0 0 No_Drugs
+1 1 1 1 Drugs_Involved
+2 2 2 2 Not_Reported
+3 3 3 3 Reported_Unknown
+METHOD_OF_DRUG_DETERMINATION
+0
+0
+0
+0
+4
+5
+0 0 0 0 Evidential_Test_(Blood_Urine)
+1 1 1 1 Drug_Recognition_Technician_(DRT)
+2 2 2 2 Behavioral
+3 3 3 3 Other
+4 4 4 4 Not_Reported
+DRUG_TEST_TYPE_(1_of_3)
+0
+0
+0
+0
+6
+7
+0 0 0 0 Not_Tested_for_Drugs
+1 1 1 1 Blood_Test
+2 2 2 2 Urine_Test
+3 3 3 3 Both:_Blood_and_Urine_(Since_1993)
+4 4 4 4 Unknown_Test_Type
+5 5 5 5 Other_Type_Test
+6 6 6 6 Unknown_if_Tested_for_Drugs
+DRUG_TEST_RESULTS_(1_of_3)
+0
+0
+0
+0
+999
+5
+0 0 0 249.75 VL
+0 249.75 249.75 499.5 L
+249.75 499.5 499.5 749.25 M
+499.5 749.25 749.25 999 H
+749.25 999 999 999 VH
+DRUG_TEST_TYPE_(2_of_3)
+0
+0
+0
+0
+6
+7
+0 0 0 0 Not_Tested_for_Drugs
+1 1 1 1 Blood_Test
+2 2 2 2 Urine_Test
+3 3 3 3 Both:_Blood_and_Urine_(Since_1993)
+4 4 4 4 Unknown_Test_Type
+5 5 5 5 Other_Type_Test
+6 6 6 6 Unknown_if_Tested_for_Drugs
+DRUG_TEST_RESULTS_(2_of_3)
+0
+0
+0
+0
+999
+5
+0 0 0 249.75 VL
+0 249.75 249.75 499.5 L
+249.75 499.5 499.5 749.25 M
+499.5 749.25 749.25 999 H
+749.25 999 999 999 VH
+DRUG_TEST_TYPE_(3_of_3)
+0
+0
+0
+0
+6
+7
+0 0 0 0 Not_Tested_for_Drugs
+1 1 1 1 Blood_Test
+2 2 2 2 Urine_Test
+3 3 3 3 Both:_Blood_and_Urine_(Since_1993)
+4 4 4 4 Unknown_Test_Type
+5 5 5 5 Other_Type_Test
+6 6 6 6 Unknown_if_Tested_for_Drugs
+DRUG_TEST_RESULTS_(3_of_3)
+0
+0
+0
+0
+999
+5
+0 0 0 249.75 VL
+0 249.75 249.75 499.5 L
+249.75 499.5 499.5 749.25 M
+499.5 749.25 749.25 999 H
+749.25 999 999 999 VH
+HISPANIC_ORIGIN
+0
+0
+0
+0
+8
+9
+0 0 0 0 Not_a_Fatality_(Not_Applicable)
+1 1 1 1 Mexican
+2 2 2 2 Puerto_Rican
+3 3 3 3 Cuban
+4 4 4 4 Central_or_South_American
+5 5 5 5 European_Spanish
+6 6 6 6 Hispanic_-_Origin_Not_Specified_or_Other_Origin
+7 7 7 7 Non-Hispanic
+8 8 8 8 Unknown
+TAKEN_TO_HOSPITAL
+0
+0
+0
+0
+2
+3
+0 0 0 0 No
+1 1 1 1 Yes
+2 2 2 2 Unknown
+RELATED_FACTOR_(1)-PERSON_LEVEL
+0
+0
+0
+0
+84
+85
+0 0 0 0 Not_Applicable_-_Driver/None_-_All_Other_Persons
+1 1 1 1 Not_Visible
+2 2 2 2 Darting_Stumbling_or_Running_into_Road
+3 3 3 3 Improper_Crossing_or_Roadway_or_Intersection
+4 4 4 4 Walking/Riding_with_or_Against_Traffic_Playing_Working_Sitting_Lying_Standing_etc._in_Roadway
+5 5 5 5 Interfering_with_Driver
+6 6 6 6 Passed_OutBlackout
+7 7 7 7 Emotional_(e.g._Depression_Angry_Disputed)
+8 8 8 8 Mentally_Challenged
+9 9 9 9 Construction/Maintenance/Utility_Worker
+10 10 10 10 Inattentive_(talking_Eating_etc)
+11 11 11 11 Walking_With_Cane_or_Crutches
+12 12 12 12 Restricted_to_Wheelchair
+13 13 13 13 Motorized_Wheelchair_Rider
+14 14 14 14 Impaired_Due_to_Previous_Injury
+15 15 15 15 Blind
+16 16 16 16 Other_Physical_Impairment
+17 17 17 17 Mother_of_Dead_Fetus
+18 18 18 18 Pedestrian_NON-MOTOR_VEHICLE_OPERATOR_RELATED_FACTORS:
+19 19 19 19 Failure_to_Keep_in_Proper_Lane
+20 20 20 20 Overloading_or_Improper_Loading_of_Vehicle_with_Passengers_or_Cargo
+21 21 21 21 Towing_or_Pushing_Vehicle_Improperly
+22 22 22 22 Failing_to_Dim_Lights_or_Have_Lights_on_When_Required
+23 23 23 23 Operating_without_Required_Equipment
+24 24 24 24 Creating_Unlawful_Noise_or_Using_Equipment_Prohibited_by_Law
+25 25 25 25 Following_Improperly
+26 26 26 26 Improper_or_Erratic_Lane_Changing
+27 27 27 27 Failure_to_Keep_in_Proper_Lane
+28 28 28 28 Illegal_Driving_on_Road_Shoulder_in_Ditch_on_Sidewalk_on_Median
+29 29 29 29 Making_Improper_Entry_to_or_Exit_from_Trafficway
+30 30 30 30 Opening_Vehicle_Closure_into_Moving_Traffic_or_While_Vehicle_is_in_Motion
+31 31 31 31 Passing_where_Prohibited_by_Posted_Signs_Pavement_Markings_Hill_or_Curve_or_School_Bus_Displaying_Warning_not_to_Pass
+32 32 32 32 Passing_on_Wrong_Side
+33 33 33 33 Passing_with_Insufficient_Distance_or_Inadequate_Visibility_or_Failing_to_Yield_to_Overtaking_Vehicle
+34 34 34 34 Operating_the_Vehicle_in_Other_Erratic_Reckless_Careless_or_Negligent_Manner_[or_Operating_at_Erratic_or_Suddenly_Changing_Speeds
+35 35 35 35 Traveling_on_Prohibited_Trafficway
+36 36 36 36 Failure_to_Yield_Right_of_Way
+37 37 37 37 Failure_to_Obey_Traffic_Signs_Traffic_Control_Devices_or_Traffic_Officers_Failure_to_Observe_Safety_Zone_Traffic_Laws
+38 38 38 38 Passing_Through_or_Around_Barrier_Positioned_to_Prohibit_or_Channel_Traffic
+39 39 39 39 Failure_to_Observe_Warnings_or_Instructions_on_Vehicles_Displaying_Them
+40 40 40 40 Failure_to_Signal_Intentions
+41 41 41 41 Giving_Wrong_Signal
+42 42 42 42 Driving_too_Fast_for_Conditions_or_in_Excess_of_Posted_Speed_Limit
+43 43 43 43 Driving_Less_than_Posted_Maximum
+44 44 44 44 Operating_at_Erratic_or_Suddenly_Changing_Speeds
+45 45 45 45 Making_Right_Turn_from_Left_Turn_Lane_or_Making_Left_Turn_from_Right_Turn_Lane
+46 46 46 46 Making_Improper_Turn
+47 47 47 47 Driving_Wrong_Way_on_One-Way_Trafficway
+48 48 48 48 Driving_on_Wrong_Side_of_Road
+49 49 49 49 Operator_Inexperience
+50 50 50 50 Unfamiliar_with_Roadway
+51 51 51 51 Stopping_in_Roadway_(Vehicle_not_Abandoned)
+52 52 52 52 Underriding_a_Parked_Truck
+53 53 53 53 Getting_Off/Out_of_or_On/In_to_Moving_Transport_Vehicle
+54 54 54 54 Getting_Off/Out_of_or_On/In_to_Non-Moving_Transport_Vehicle
+55 55 55 55 Improper_Tire_Pressure
+56 56 56 56 Locked_Wheel
+57 57 57 57 Vision_obscured_by_overcorrecting
+58 58 58 58 Rain_Snow_Fog_Smoke_Sand_Dust
+59 59 59 59 Reflected_Glare_Bright_Sunlight_Headlights
+60 60 60 60 Curve_Hill_Or_Other_Design_Features_(including_Traffic_signs_Embankment)
+61 61 61 61 Building_Billboard_or_Other_Structures
+62 62 62 62 Trees_Crops_Vegetation
+63 63 63 63 Motor_Vehicle_(including_load)
+64 64 64 64 Parked_Vehicle
+65 65 65 65 Splash_or_Spray_or_Passing_Vehicle
+66 66 66 66 Inadequate_Lighting_System
+67 67 67 67 Obstructing_Angles_on_Vehicle
+68 68 68 68 Mirrors_-_Rear_View
+69 69 69 69 Mirrors_-_Other
+70 70 70 70 Head_Restraints_AVOIDING_SWERVING_OR_SLIDING_DUE_TO
+71 71 71 71 Severe_Crosswind
+72 72 72 72 Wind_from_Passing_Truck
+73 73 73 73 Slippery_or_Loose_Surface
+74 74 74 74 Tire_Blow-Out_or_Flat
+75 75 75 75 Debris_or_Objects_in_Road
+76 76 76 76 Ruts_Holes_Bumps_in_Road
+77 77 77 77 Animals_in_Road
+78 78 78 78 Vehicle_in_Road
+79 79 79 79 Phantom_Vehicle
+80 80 80 80 Pedestrian_Pedalcyclist_or_Other_Non-Motorist
+81 81 81 81 Ice_Snow_Slush_Water_Sand_Dirt_Oil_Wet_Leaves_on_Road
+82 82 82 82 Carrying_Hazardous_Cargo_Improperly
+83 83 83 83 Non-Motorist_Pushing_a_Vehicle
+84 84 84 84 Unknown
+RELATED_FACTOR_(2)-PERSON_LEVEL
+0
+0
+0
+0
+84
+85
+0 0 0 0 Not_Applicable_-_Driver/None_-_All_Other_Persons
+1 1 1 1 Not_Visible
+2 2 2 2 Darting_Stumbling_or_Running_into_Road
+3 3 3 3 Improper_Crossing_or_Roadway_or_Intersection
+4 4 4 4 Walking/Riding_with_or_Against_Traffic_Playing_Working_Sitting_Lying_Standing_etc._in_Roadway
+5 5 5 5 Interfering_with_Driver
+6 6 6 6 Passed_OutBlackout
+7 7 7 7 Emotional_(e.g._Depression_Angry_Disputed)
+8 8 8 8 Mentally_Challenged
+9 9 9 9 Construction/Maintenance/Utility_Worker
+10 10 10 10 Inattentive_(talking_Eating_etc)
+11 11 11 11 Walking_With_Cane_or_Crutches
+12 12 12 12 Restricted_to_Wheelchair
+13 13 13 13 Motorized_Wheelchair_Rider
+14 14 14 14 Impaired_Due_to_Previous_Injury
+15 15 15 15 Blind
+16 16 16 16 Other_Physical_Impairment
+17 17 17 17 Mother_of_Dead_Fetus
+18 18 18 18 Pedestrian_NON-MOTOR_VEHICLE_OPERATOR_RELATED_FACTORS:
+19 19 19 19 Failure_to_Keep_in_Proper_Lane
+20 20 20 20 Overloading_or_Improper_Loading_of_Vehicle_with_Passengers_or_Cargo
+21 21 21 21 Towing_or_Pushing_Vehicle_Improperly
+22 22 22 22 Failing_to_Dim_Lights_or_Have_Lights_on_When_Required
+23 23 23 23 Operating_without_Required_Equipment
+24 24 24 24 Creating_Unlawful_Noise_or_Using_Equipment_Prohibited_by_Law
+25 25 25 25 Following_Improperly
+26 26 26 26 Improper_or_Erratic_Lane_Changing
+27 27 27 27 Failure_to_Keep_in_Proper_Lane
+28 28 28 28 Illegal_Driving_on_Road_Shoulder_in_Ditch_on_Sidewalk_on_Median
+29 29 29 29 Making_Improper_Entry_to_or_Exit_from_Trafficway
+30 30 30 30 Opening_Vehicle_Closure_into_Moving_Traffic_or_While_Vehicle_is_in_Motion
+31 31 31 31 Passing_where_Prohibited_by_Posted_Signs_Pavement_Markings_Hill_or_Curve_or_School_Bus_Displaying_Warning_not_to_Pass
+32 32 32 32 Passing_on_Wrong_Side
+33 33 33 33 Passing_with_Insufficient_Distance_or_Inadequate_Visibility_or_Failing_to_Yield_to_Overtaking_Vehicle
+34 34 34 34 Operating_the_Vehicle_in_Other_Erratic_Reckless_Careless_or_Negligent_Manner_[or_Operating_at_Erratic_or_Suddenly_Changing_Speeds
+35 35 35 35 Traveling_on_Prohibited_Trafficway
+36 36 36 36 Failure_to_Yield_Right_of_Way
+37 37 37 37 Failure_to_Obey_Traffic_Signs_Traffic_Control_Devices_or_Traffic_Officers_Failure_to_Observe_Safety_Zone_Traffic_Laws
+38 38 38 38 Passing_Through_or_Around_Barrier_Positioned_to_Prohibit_or_Channel_Traffic
+39 39 39 39 Failure_to_Observe_Warnings_or_Instructions_on_Vehicles_Displaying_Them
+40 40 40 40 Failure_to_Signal_Intentions
+41 41 41 41 Giving_Wrong_Signal
+42 42 42 42 Driving_too_Fast_for_Conditions_or_in_Excess_of_Posted_Speed_Limit
+43 43 43 43 Driving_Less_than_Posted_Maximum
+44 44 44 44 Operating_at_Erratic_or_Suddenly_Changing_Speeds
+45 45 45 45 Making_Right_Turn_from_Left_Turn_Lane_or_Making_Left_Turn_from_Right_Turn_Lane
+46 46 46 46 Making_Improper_Turn
+47 47 47 47 Driving_Wrong_Way_on_One-Way_Trafficway
+48 48 48 48 Driving_on_Wrong_Side_of_Road
+49 49 49 49 Operator_Inexperience
+50 50 50 50 Unfamiliar_with_Roadway
+51 51 51 51 Stopping_in_Roadway_(Vehicle_not_Abandoned)
+52 52 52 52 Underriding_a_Parked_Truck
+53 53 53 53 Getting_Off/Out_of_or_On/In_to_Moving_Transport_Vehicle
+54 54 54 54 Getting_Off/Out_of_or_On/In_to_Non-Moving_Transport_Vehicle
+55 55 55 55 Improper_Tire_Pressure
+56 56 56 56 Locked_Wheel
+57 57 57 57 Vision_obscured_by_overcorrecting
+58 58 58 58 Rain_Snow_Fog_Smoke_Sand_Dust
+59 59 59 59 Reflected_Glare_Bright_Sunlight_Headlights
+60 60 60 60 Curve_Hill_Or_Other_Design_Features_(including_Traffic_signs_Embankment)
+61 61 61 61 Building_Billboard_or_Other_Structures
+62 62 62 62 Trees_Crops_Vegetation
+63 63 63 63 Motor_Vehicle_(including_load)
+64 64 64 64 Parked_Vehicle
+65 65 65 65 Splash_or_Spray_or_Passing_Vehicle
+66 66 66 66 Inadequate_Lighting_System
+67 67 67 67 Obstructing_Angles_on_Vehicle
+68 68 68 68 Mirrors_-_Rear_View
+69 69 69 69 Mirrors_-_Other
+70 70 70 70 Head_Restraints_AVOIDING_SWERVING_OR_SLIDING_DUE_TO
+71 71 71 71 Severe_Crosswind
+72 72 72 72 Wind_from_Passing_Truck
+73 73 73 73 Slippery_or_Loose_Surface
+74 74 74 74 Tire_Blow-Out_or_Flat
+75 75 75 75 Debris_or_Objects_in_Road
+76 76 76 76 Ruts_Holes_Bumps_in_Road
+77 77 77 77 Animals_in_Road
+78 78 78 78 Vehicle_in_Road
+79 79 79 79 Phantom_Vehicle
+80 80 80 80 Pedestrian_Pedalcyclist_or_Other_Non-Motorist
+81 81 81 81 Ice_Snow_Slush_Water_Sand_Dirt_Oil_Wet_Leaves_on_Road
+82 82 82 82 Carrying_Hazardous_Cargo_Improperly
+83 83 83 83 Non-Motorist_Pushing_a_Vehicle
+84 84 84 84 Unknown
+RELATED_FACTOR_(3)-PERSON_LEVEL
+0
+0
+0
+0
+84
+85
+0 0 0 0 Not_Applicable_-_Driver/None_-_All_Other_Persons
+1 1 1 1 Not_Visible
+2 2 2 2 Darting_Stumbling_or_Running_into_Road
+3 3 3 3 Improper_Crossing_or_Roadway_or_Intersection
+4 4 4 4 Walking/Riding_with_or_Against_Traffic_Playing_Working_Sitting_Lying_Standing_etc._in_Roadway
+5 5 5 5 Interfering_with_Driver
+6 6 6 6 Passed_OutBlackout
+7 7 7 7 Emotional_(e.g._Depression_Angry_Disputed)
+8 8 8 8 Mentally_Challenged
+9 9 9 9 Construction/Maintenance/Utility_Worker
+10 10 10 10 Inattentive_(talking_Eating_etc)
+11 11 11 11 Walking_With_Cane_or_Crutches
+12 12 12 12 Restricted_to_Wheelchair
+13 13 13 13 Motorized_Wheelchair_Rider
+14 14 14 14 Impaired_Due_to_Previous_Injury
+15 15 15 15 Blind
+16 16 16 16 Other_Physical_Impairment
+17 17 17 17 Mother_of_Dead_Fetus
+18 18 18 18 Pedestrian_NON-MOTOR_VEHICLE_OPERATOR_RELATED_FACTORS:
+19 19 19 19 Failure_to_Keep_in_Proper_Lane
+20 20 20 20 Overloading_or_Improper_Loading_of_Vehicle_with_Passengers_or_Cargo
+21 21 21 21 Towing_or_Pushing_Vehicle_Improperly
+22 22 22 22 Failing_to_Dim_Lights_or_Have_Lights_on_When_Required
+23 23 23 23 Operating_without_Required_Equipment
+24 24 24 24 Creating_Unlawful_Noise_or_Using_Equipment_Prohibited_by_Law
+25 25 25 25 Following_Improperly
+26 26 26 26 Improper_or_Erratic_Lane_Changing
+27 27 27 27 Failure_to_Keep_in_Proper_Lane
+28 28 28 28 Illegal_Driving_on_Road_Shoulder_in_Ditch_on_Sidewalk_on_Median
+29 29 29 29 Making_Improper_Entry_to_or_Exit_from_Trafficway
+30 30 30 30 Opening_Vehicle_Closure_into_Moving_Traffic_or_While_Vehicle_is_in_Motion
+31 31 31 31 Passing_where_Prohibited_by_Posted_Signs_Pavement_Markings_Hill_or_Curve_or_School_Bus_Displaying_Warning_not_to_Pass
+32 32 32 32 Passing_on_Wrong_Side
+33 33 33 33 Passing_with_Insufficient_Distance_or_Inadequate_Visibility_or_Failing_to_Yield_to_Overtaking_Vehicle
+34 34 34 34 Operating_the_Vehicle_in_Other_Erratic_Reckless_Careless_or_Negligent_Manner_[or_Operating_at_Erratic_or_Suddenly_Changing_Speeds
+35 35 35 35 Traveling_on_Prohibited_Trafficway
+36 36 36 36 Failure_to_Yield_Right_of_Way
+37 37 37 37 Failure_to_Obey_Traffic_Signs_Traffic_Control_Devices_or_Traffic_Officers_Failure_to_Observe_Safety_Zone_Traffic_Laws
+38 38 38 38 Passing_Through_or_Around_Barrier_Positioned_to_Prohibit_or_Channel_Traffic
+39 39 39 39 Failure_to_Observe_Warnings_or_Instructions_on_Vehicles_Displaying_Them
+40 40 40 40 Failure_to_Signal_Intentions
+41 41 41 41 Giving_Wrong_Signal
+42 42 42 42 Driving_too_Fast_for_Conditions_or_in_Excess_of_Posted_Speed_Limit
+43 43 43 43 Driving_Less_than_Posted_Maximum
+44 44 44 44 Operating_at_Erratic_or_Suddenly_Changing_Speeds
+45 45 45 45 Making_Right_Turn_from_Left_Turn_Lane_or_Making_Left_Turn_from_Right_Turn_Lane
+46 46 46 46 Making_Improper_Turn
+47 47 47 47 Driving_Wrong_Way_on_One-Way_Trafficway
+48 48 48 48 Driving_on_Wrong_Side_of_Road
+49 49 49 49 Operator_Inexperience
+50 50 50 50 Unfamiliar_with_Roadway
+51 51 51 51 Stopping_in_Roadway_(Vehicle_not_Abandoned)
+52 52 52 52 Underriding_a_Parked_Truck
+53 53 53 53 Getting_Off/Out_of_or_On/In_to_Moving_Transport_Vehicle
+54 54 54 54 Getting_Off/Out_of_or_On/In_to_Non-Moving_Transport_Vehicle
+55 55 55 55 Improper_Tire_Pressure
+56 56 56 56 Locked_Wheel
+57 57 57 57 Vision_obscured_by_overcorrecting
+58 58 58 58 Rain_Snow_Fog_Smoke_Sand_Dust
+59 59 59 59 Reflected_Glare_Bright_Sunlight_Headlights
+60 60 60 60 Curve_Hill_Or_Other_Design_Features_(including_Traffic_signs_Embankment)
+61 61 61 61 Building_Billboard_or_Other_Structures
+62 62 62 62 Trees_Crops_Vegetation
+63 63 63 63 Motor_Vehicle_(including_load)
+64 64 64 64 Parked_Vehicle
+65 65 65 65 Splash_or_Spray_or_Passing_Vehicle
+66 66 66 66 Inadequate_Lighting_System
+67 67 67 67 Obstructing_Angles_on_Vehicle
+68 68 68 68 Mirrors_-_Rear_View
+69 69 69 69 Mirrors_-_Other
+70 70 70 70 Head_Restraints_AVOIDING_SWERVING_OR_SLIDING_DUE_TO
+71 71 71 71 Severe_Crosswind
+72 72 72 72 Wind_from_Passing_Truck
+73 73 73 73 Slippery_or_Loose_Surface
+74 74 74 74 Tire_Blow-Out_or_Flat
+75 75 75 75 Debris_or_Objects_in_Road
+76 76 76 76 Ruts_Holes_Bumps_in_Road
+77 77 77 77 Animals_in_Road
+78 78 78 78 Vehicle_in_Road
+79 79 79 79 Phantom_Vehicle
+80 80 80 80 Pedestrian_Pedalcyclist_or_Other_Non-Motorist
+81 81 81 81 Ice_Snow_Slush_Water_Sand_Dirt_Oil_Wet_Leaves_on_Road
+82 82 82 82 Carrying_Hazardous_Cargo_Improperly
+83 83 83 83 Non-Motorist_Pushing_a_Vehicle
+84 84 84 84 Unknown
+RACE
+0
+0
+0
+0
+18
+19
+0 0 0 0 Not_a_Fatality_(Not_Applicable)
+1 1 1 1 White
+2 2 2 2 Black
+3 3 3 3 American_Indian_(_Includes_Aleuts_and_Eskimos)
+4 4 4 4 Chinese
+5 5 5 5 Japanese
+6 6 6 6 Hawaiian_(Includes_part-Hawaiian)
+7 7 7 7 Filipino
+8 8 8 8 Asian_Indian
+9 9 9 9 Other_Indian_(Includes_South_and_Central_America)
+10 10 10 10 Korean
+11 11 11 11 Samoan
+12 12 12 12 Vietnamese
+13 13 13 13 Guamanian
+14 14 14 14 Other_Asian_or_Pacific_Islander
+15 15 15 15 Asian_or_Pacific_Islander_No_Specific_(Individual)_Race
+16 16 16 16 Multiple_Races_(Individual_races_not_specified;_ex._mixed)
+17 17 17 17 All_Other_Races
+18 18 18 18 Unknown
+INJURY_SEVERITY
+1
+0
+0
+0
+1
+2
+0 0 0 0 No_Injury
+1 1 1 1 Fatal_Injury

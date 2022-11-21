@@ -1,0 +1,237 @@
+15
+Age
+0
+0
+0
+17
+90
+5
+17 17 17 35.25 VL
+17 35.25 35.25 53.5 L
+35.25 53.5 53.5 71.75 M
+53.5 71.75 71.75 90 H
+71.75 90 90 90 VH
+Workclass
+0
+0
+0
+0
+7
+8
+0 0 0 0 Private
+1 1 1 1 Self-emp-not-inc
+2 2 2 2 Self-emp-inc
+3 3 3 3 Federal-gov
+4 4 4 4 Local-gov
+5 5 5 5 State-gov
+6 6 6 6 Without-pay
+7 7 7 7 Never-worked
+Fnlwgt
+0
+0
+0
+13492
+1.4904e+06
+5
+13492 13492 13492 382719 VL
+13492 382719 382719 751946 L
+382719 751946 751946 1.12117e+06 M
+751946 1.12117e+06 1.12117e+06 1.4904e+06 H
+1.12117e+06 1.4904e+06 1.4904e+06 1.4904e+06 VH
+Education
+0
+0
+0
+0
+15
+16
+0 0 0 0 Bachelors
+1 1 1 1 Some-college
+2 2 2 2 11th
+3 3 3 3 HS-grad
+4 4 4 4 Prof-school
+5 5 5 5 Assoc-acdm
+6 6 6 6 Assoc-voc
+7 7 7 7 9th
+8 8 8 8 7th-8th
+9 9 9 9 12th
+10 10 10 10 Masters
+11 11 11 11 1st-4th
+12 12 12 12 10th
+13 13 13 13 Doctorate
+14 14 14 14 5th-6th
+15 15 15 15 Preschool
+Education-num
+0
+0
+0
+1
+16
+5
+1 1 1 4.75 VL
+1 4.75 4.75 8.5 L
+4.75 8.5 8.5 12.25 M
+8.5 12.25 12.25 16 H
+12.25 16 16 16 VH
+Marital-status
+0
+0
+0
+0
+6
+7
+0 0 0 0 Married-civ-spouse
+1 1 1 1 Divorced
+2 2 2 2 Never-married
+3 3 3 3 Separated
+4 4 4 4 Widowed
+5 5 5 5 Married-spouse-absent
+6 6 6 6 Married-AF-spouse
+Occupation
+0
+0
+0
+0
+13
+14
+0 0 0 0 Tech-support
+1 1 1 1 Craft-repair
+2 2 2 2 Other-service
+3 3 3 3 Sales
+4 4 4 4 Exec-managerial
+5 5 5 5 Prof-specialty
+6 6 6 6 Handlers-cleaners
+7 7 7 7 Machine-op-inspct
+8 8 8 8 Adm-clerical
+9 9 9 9 Farming-fishing
+10 10 10 10 Transport-moving
+11 11 11 11 Priv-house-serv
+12 12 12 12 Protective-serv
+13 13 13 13 Armed-Forces
+Relationship
+0
+0
+0
+0
+5
+6
+0 0 0 0 Wife
+1 1 1 1 Own-child
+2 2 2 2 Husband
+3 3 3 3 Not-in-family
+4 4 4 4 Other-relative
+5 5 5 5 Unmarried
+Race
+0
+0
+0
+0
+4
+5
+0 0 0 0 White
+1 1 1 1 Asian-Pac-Islander
+2 2 2 2 Amer-Indian-Eskimo
+3 3 3 3 Other
+4 4 4 4 Black
+Sex
+0
+0
+0
+0
+1
+2
+0 0 0 0 Female
+1 1 1 1 Male
+Capital-gain
+0
+0
+0
+0
+99999
+5
+0 0 0 24999.8 VL
+0 24999.8 24999.8 49999.5 L
+24999.8 49999.5 49999.5 74999.2 M
+49999.5 74999.2 74999.2 99999 H
+74999.2 99999 99999 99999 VH
+Capital-loss
+0
+0
+0
+0
+4356
+5
+0 0 0 1089 VL
+0 1089 1089 2178 L
+1089 2178 2178 3267 M
+2178 3267 3267 4356 H
+3267 4356 4356 4356 VH
+Hours-per-week
+0
+0
+0
+1
+99
+5
+1 1 1 25.5 VL
+1 25.5 25.5 50 L
+25.5 50 50 74.5 M
+50 74.5 74.5 99 H
+74.5 99 99 99 VH
+Native-country
+0
+0
+0
+0
+40
+41
+0 0 0 0 United-States
+1 1 1 1 Cambodia
+2 2 2 2 England
+3 3 3 3 Puerto-Rico
+4 4 4 4 Canada
+5 5 5 5 Germany
+6 6 6 6 Outlying-US(Guam-USVI-etc)
+7 7 7 7 India
+8 8 8 8 Japan
+9 9 9 9 Greece
+10 10 10 10 South
+11 11 11 11 China
+12 12 12 12 Cuba
+13 13 13 13 Iran
+14 14 14 14 Honduras
+15 15 15 15 Philippines
+16 16 16 16 Italy
+17 17 17 17 Poland
+18 18 18 18 Jamaica
+19 19 19 19 Vietnam
+20 20 20 20 Mexico
+21 21 21 21 Portugal
+22 22 22 22 Ireland
+23 23 23 23 France
+24 24 24 24 Dominican-Republic
+25 25 25 25 Laos
+26 26 26 26 Ecuador
+27 27 27 27 Taiwan
+28 28 28 28 Haiti
+29 29 29 29 Columbia
+30 30 30 30 Hungary
+31 31 31 31 Guatemala
+32 32 32 32 Nicaragua
+33 33 33 33 Scotland
+34 34 34 34 Thailand
+35 35 35 35 Yugoslavia
+36 36 36 36 El-Salvador
+37 37 37 37 Trinadad&Tobago
+38 38 38 38 Peru
+39 39 39 39 Hong
+40 40 40 40 Holand-Netherlands
+Class
+1
+0
+0
+0
+1
+2
+0 0 0 0 >50K
+1 1 1 1 <=50K
