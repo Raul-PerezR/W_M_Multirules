@@ -2478,7 +2478,7 @@ void DescripcionExperimento (const ProgramParameters &InputParam){
 	cout << "Parameter times in Learning Method: " << InputParam.tm << endl;
 	cout << "Parameter Threshold in Learning Method: "<< InputParam.th << endl;
 	cout << "Parameter d of Hamming version in Learning Method: " << InputParam.ld << endl;
-	cout << "The new way quick calculation weigth is considered: " << InputParam.wCP << endl;
+	cout << "The exhaustive calculation weigth method is considered: " << InputParam.wCP << endl;
 	cout << "Type of weight of the Rule: " << InputParam.w << endl;
 	cout << "Filtering Rule Method: " << InputParam.RF << endl;
 	cout << "Maximum Number of Rules in Diccionary: " << InputParam.sz << endl;
