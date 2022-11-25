@@ -487,7 +487,8 @@ bool Ordenar_infoUp(const infoUp &x, const infoUp &y)
 
 //-----------------------------------------------------------------------------------------------------
 void Pattern::Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(const example_set &Es, const VectorVar &V, const int eje,
-																string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &current_tries, int number_tries, int sz)
+																string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &current_tries, 
+																vector<string> &listaDeReglas, int number_tries, int sz, int RSC)
 {
 	int j = actualVar;
 
@@ -504,6 +505,9 @@ void Pattern::Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(const example_se
 		current_tries++;
 		// cout << current_tries << ") " << cadena << " -->" << adapt;
 		// cout << endl;
+		if ((current_tries == 1 and RSC ==1) or RSC == 2){ //RSC indica que devolverá solo las reglas centrales y current_tries=1 indica que es la regla central. Con RSC=2 se meten todas las que afectan.
+			listaDeReglas.push_back(cadena);
+		}
 		auto it = diccionario.find(cadena);
 		info d;
 		if (it == diccionario.end())
@@ -544,7 +548,7 @@ void Pattern::Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(const example_se
 			ponerEnCadena(copy_cadena, trozos[j].posCadenainicio, trozos[j].trozoAcambiar[i].subCadena);
 			// T-Norm product
 			// cout << copy_cadena << endl;
-			Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(Es, V, eje, copy_cadena, j + 1, adapt * trozos[j].trozoAcambiar[i].adaptacion, trozos, current_tries, number_tries, sz);
+			Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(Es, V, eje, copy_cadena, j + 1, adapt * trozos[j].trozoAcambiar[i].adaptacion, trozos, current_tries, listaDeReglas, number_tries, sz, RSC);
 		}
 	}
 }
@@ -808,7 +812,7 @@ void Pattern::Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_DistanciaHammning(cons
 }
 
 //--------------------------------------------------  Versión redundancia por número de veces (tries)     ---------------------------------------------------
-void Pattern::ExtraerPatronesBasicosAproximacionTFMRuben_Veces(const example_set &E, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam)
+void Pattern::ExtraerPatronesBasicosAproximacionTFMRuben_Veces(const example_set &E, const VectorVar &V, TestResult &result, vector<vector<string>> &RSC, const ProgramParameters &InputParam)
 {
 
 	cout << "Extracting patterns ......\n"
@@ -828,6 +832,8 @@ void Pattern::ExtraerPatronesBasicosAproximacionTFMRuben_Veces(const example_set
 		result.error_intrinseco_porClase.push_back(0);
 	}
 
+	vector<string> listaDeReglas;
+
 	vector<infoUp> trozos;
 	// Construyo el patron
 	for (int i = 0; i < E.N_Examples() and (InputParam.sz == 0 or (InputParam.sz > 0 and diccionario.size() < InputParam.sz)); i++)
@@ -840,6 +846,7 @@ void Pattern::ExtraerPatronesBasicosAproximacionTFMRuben_Veces(const example_set
 		cout << ") ----- >" <<  E.Data(i,V.Consecuente()) << endl;
 		char ch;
 		cin >> ch;*/
+		listaDeReglas.clear();
 
 		deleteLine2();
 		cout << "Learning:   " << (i * 100.0) / E.N_Examples() << "\%"
@@ -927,7 +934,9 @@ void Pattern::ExtraerPatronesBasicosAproximacionTFMRuben_Veces(const example_set
 	  cout << endl;*/
 
 		int current_tries = 0;
-		Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(E, V, i, coded_rule, 0, 1, trozos, current_tries, InputParam.tm, InputParam.sz);
+		listaDeReglas.clear();
+		Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(E, V, i, coded_rule, 0, 1, trozos, current_tries, listaDeReglas, InputParam.tm, InputParam.sz, InputParam.RSC);
+		RSC.push_back(listaDeReglas);
 		/*char ch;
 		cout << "pulsa una tecla para continuar \n";
 		cin >> ch;*/
@@ -2887,7 +2896,8 @@ void Pattern::Listar_Patrones()
 
 void Pattern::CalculoExactoDeAdaptacionesAPatrones(const example_set &E, const VectorVar &V)
 {
-	cout << "Calculando Valores Exactos Para Definir el Peso.....\n";
+	cout << "Exhaustive method for obtaining the weights.....\n\n";
+
 
 	// Reinicio los valores asociados a los patrones
 	for (auto it = diccionario.begin(); it != diccionario.end(); it++)
@@ -2900,8 +2910,13 @@ void Pattern::CalculoExactoDeAdaptacionesAPatrones(const example_set &E, const V
 	}
 
 	// Para cada uno de los patrones encontrados ponerle sus valores de n+ y n-
+	int i=0;
 	for (auto it = diccionario.begin(); it != diccionario.end(); it++)
 	{
+		deleteLine2();
+		cout << "Evolution:   " << (i * 100.0) / diccionario.size() << "\%"
+			 << "\t\#Rules= " << diccionario.size() << endl;
+
 		for (int i = 0; i < E.N_Examples(); i++)
 		{
 			double valor = V.AdaptacionTNormProduct(E.Data(i), it->first, 0);
@@ -2911,6 +2926,7 @@ void Pattern::CalculoExactoDeAdaptacionesAPatrones(const example_set &E, const V
 				it->second.eje_list[E.Class_of_example(V.Consecuente(), i)]++;
 			}
 		}
+		i++;
 	}
 }
 
@@ -3060,7 +3076,65 @@ void Pattern::CalcularPesoYClases(int weightRuleModel)
 	}
 }
 
+
 //-----------------------------------------------------------------------------------------------------
+
+pair<string,info> Pattern::ObtenerPatron(string antecedente){
+	pair<string,info> aux;
+	aux.first = "noEncontrado";
+	auto p = diccionario.find(antecedente);
+	if (p!=diccionario.end()){
+		aux.first  = p->first;
+		aux.second = p->second;
+	}
+	else{
+		cout << "noEncontrado " << antecedente << endl;
+	}
+	return aux;
+}
+
+//-----------------------------------------------------------------------------------------------------
+double ValoracionNMas_NMenos(const info &x){
+	double max = x.conseq[0], sum = max;
+	int posMax = 0;
+	for (int i=1; i<x.conseq.size(); i++){
+		sum += x.conseq[i];
+		if (max<x.conseq[i]){
+			posMax = i;
+			max = x.conseq[i];
+		}
+	}
+	return max - (sum - max);
+}
+
+//-----------------------------------------------------------------------------------------------------
+
+pair<string,info> Pattern::BetterPatron(const vector<string> & listaPatrones){
+	pair<string,info> aux, better;
+	better = ObtenerPatron(listaPatrones[0]);
+	double mejor = ValoracionNMas_NMenos(better.second);
+
+	for (int i = 1; i < listaPatrones.size(); i++){
+		aux = ObtenerPatron(listaPatrones[i]);
+		double valor = ValoracionNMas_NMenos(aux.second);
+		if (valor>mejor) 
+			better = aux;
+	}
+	return better;
+}
+
+
+//-----------------------------------------------------------------------------------------------------
+void Pattern::CambiarDiccionario(const unordered_map<string, info> &new_dicionario){
+	diccionario.clear();
+	diccionario = new_dicionario;
+}
+
+
+
+
+//-----------------------------------------------------------------------------------------------------
+
 int Pattern::N_Patrones_paraClase(int clase) const
 {
 	if (diccionario.size() == 0)

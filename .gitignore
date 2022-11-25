@@ -1,5 +1,4 @@
 workspace.code-workspace
-src/*.csv
 src/*.sh
 src/*.o
 src/W_M_Multirules

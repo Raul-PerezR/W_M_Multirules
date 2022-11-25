@@ -63,7 +63,7 @@ struct ProgramParameters
   int sz;                //-size
   int w;                 //-weightRuleModel
   int IM;                //-InferenceModel
-  int RF;                //-RuleFilteringMethod
+  int RSC;               //-RuleSelectionCriteria
   int nLab;              //-nlabel
   int seed;              //-sd
   int d_distance;        //-d
@@ -101,18 +101,20 @@ public:
 
   Pattern(const Pattern &x);
   Pattern &operator=(const Pattern &x);
+  void CambiarDiccionario(const unordered_map<string, info> &new_dicionario);
+
 
   void PintaPatrones();
 
   void ExtraerPatronesBasicos(const example_set &Es, const VectorVar &V, TestResult &result);
   void ExtraerPatronesBasicosOriginalWM(const example_set &Es, const VectorVar &V, TestResult &result);
-  void ExtraerPatronesBasicosAproximacionTFMRuben_Veces(const example_set &Es, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam);
+  void ExtraerPatronesBasicosAproximacionTFMRuben_Veces(const example_set &Es, const VectorVar &V, TestResult &result, vector<vector<string>> &RSC, const ProgramParameters &InputParam);
   void ExtraerPatronesBasicosAproximacion_Umbral_w_Normalizado(const example_set &E, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam);
   void ExtraerPatronesBasicosAproximacionTFMRuben_Umbral(const example_set &Es, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam);
   void ExtraerPatronesBasicosAproximacionTFMRuben_DHamming(const example_set &Es, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam);
   void ExtraerPatronesBasicosAproximacionMixed_Umbral_Norm_and_hamming(const example_set &E, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam);
 
-  void Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(const example_set &E, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &current_tries, int number_tries, int sz);
+  void Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(const example_set &Es, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &current_tries, vector<string> &listaDeReglas, int number_tries, int sz, int RSC);  
   void Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Umbral(const example_set &E, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &considered, double &Threshold, int sz);
   void Aprendizaje_RecursivoUnEjemplo_WM_Umbral_Normalizado(const example_set &Es, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &considered, double Threshold, int sz);
   void Aprendizaje_RecursivoUnEjemplo_WM_Umbral_Norm_and_Hamming(const example_set &Es, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &considered, double Threshold, int distance, int Limit_distance, int sz);
@@ -146,6 +148,8 @@ public:
   void CalculoExactoDeAdaptacionesAPatrones(const example_set &E, const VectorVar &V);
   void CalcularPesoYClases(int weightRuleModel);
   void Listar_Patrones();
+  pair<string,info> BetterPatron(const vector<string> & listaPatrones);
+  pair<string,info> ObtenerPatron(string antecedente);
 
 
   int N_Pattern() { return diccionario.size(); }

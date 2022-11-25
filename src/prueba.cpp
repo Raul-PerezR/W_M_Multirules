@@ -2480,7 +2480,7 @@ void DescripcionExperimento (const ProgramParameters &InputParam){
 	cout << "Parameter d of Hamming version in Learning Method: " << InputParam.ld << endl;
 	cout << "The exhaustive calculation weigth method is considered: " << InputParam.wCP << endl;
 	cout << "Type of weight of the Rule: " << InputParam.w << endl;
-	cout << "Filtering Rule Method: " << InputParam.RF << endl;
+	cout << "Rule Selection Criteria: " << InputParam.RSC << endl;
 	cout << "Maximum Number of Rules in Diccionary: " << InputParam.sz << endl;
 	cout << "Output File: " << InputParam.outputFile << endl;
 	if (InputParam.Nit) cout << "Activated "; else cout << "Non-Activated "; cout << "Inference real on Training Set" << endl;
@@ -2561,14 +2561,17 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 		//Patrones2.ExtraerPatronesBasicosOriginalWM(E_Par_Completo,V2, result[par]);
 		DescripcionExperimento(InputParam);
 
+		vector<vector<string>> listaDeReglas;
+		unordered_map<string, info> diccionario_reducido;
+
 		switch (InputParam.LM)
 		{
 		case 1: // Classic Chi Algoritm
 		    InputParam.tm = 1;
-			Patrones2.ExtraerPatronesBasicosAproximacionTFMRuben_Veces(E_Par_Completo, V2, resultTrain[par], InputParam);
+			Patrones2.ExtraerPatronesBasicosAproximacionTFMRuben_Veces(E_Par_Completo, V2, resultTrain[par], listaDeReglas, InputParam);
 			break;
-		case 2: // Modelo que incluye las n_veces mejores antecedentes.
-			Patrones2.ExtraerPatronesBasicosAproximacionTFMRuben_Veces(E_Par_Completo, V2, resultTrain[par], InputParam);
+		case 2: // Modelo que incluye los n_veces mejores antecedentes.
+			Patrones2.ExtraerPatronesBasicosAproximacionTFMRuben_Veces(E_Par_Completo, V2, resultTrain[par], listaDeReglas, InputParam);
 			break;
 		case 3: // Modelo que incluye todos los antecedentes con un adaptación superior a Threshold_Redundancy
 			Patrones2.ExtraerPatronesBasicosAproximacionTFMRuben_Umbral(E_Par_Completo, V2, resultTrain[par], InputParam);
@@ -2589,6 +2592,40 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 		if (InputParam.wCP){
 			Patrones2.CalculoExactoDeAdaptacionesAPatrones(E_Par_Completo, V2);
 		}
+
+		// Método de selección de reglas
+		switch (InputParam.RSC)
+		{
+		case 0: // No se filtra ninguna regla. Es la versión multireglas donde todas las reglas se incluyen en la base de reglas
+			break;
+		case 1: // Sería la versión del chi original tomando las reglas centrales de cada ejemplo pero tomando más reglas para el cálculo del peso.
+		        if (InputParam.tm > 1){
+					pair<string,info> aux;
+					for (int i=0; i<listaDeReglas.size(); i++){
+						aux = Patrones2.ObtenerPatron(listaDeReglas[i][0]);
+						if (aux.first != "noEncontrado") {
+							diccionario_reducido.insert(aux);
+						}
+					}
+					Patrones2.CambiarDiccionario(diccionario_reducido);
+		        /*cout << "Tamano lista de reglas: " << diccionario_reducido.size() << endl;
+				char ch; cin >> ch;*/
+				}
+			break;
+		case 2: // Sería la versión del chi original pero cambiando la regla central por la mejor reglas entre las consideradas para ese ejemplo.
+		        if (InputParam.tm > 1){
+					pair<string,info> aux;
+					for (int i=0; i<listaDeReglas.size(); i++){
+						aux = Patrones2.BetterPatron(listaDeReglas[i]);
+						diccionario_reducido.insert(aux);
+					}
+					Patrones2.CambiarDiccionario(diccionario_reducido);
+		        /*cout << "Tamano lista de reglas: " << diccionario_reducido.size() << endl;
+				char ch; cin >> ch;*/
+				}
+			break;
+		}
+
 
 		Patrones2.CalcularPesoYClases(InputParam.w);
 		fin = clock();
@@ -2714,17 +2751,6 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 			t_infer_training = inicio_trozos;
 		}
 
-		// Método de selección de reglas
-		switch (InputParam.RF)
-		{
-		case 0: // No se filtra ninguna regla
-			break;
-		case 1: // En el conjunto final sólo se quedan las reglas que disparan algún ejemplo del conjunto de entrenamiento.
-			Patrones2.ReducirPatrones(Disparados);
-			cout << "Patterns passed from " << pat_antes << " to " << Patrones2.N_Pattern() << endl;
-
-			break;
-		}
 
 		media_patrones += Patrones2.N_Pattern();
 
@@ -3329,14 +3355,14 @@ int main(int argc, char *argv[])
 	}
 
 	// Seleccionar el metodo de filtrado de reglas
-	InputParam.RF = 0;
-	aux = input.getCmdOption("-RuleFilteringMethod");
+	InputParam.RSC = 0;
+	aux = input.getCmdOption("-RuleSelectionCriteria");
 	if (aux.empty()){
-		aux = input.getCmdOption("-RF");
+		aux = input.getCmdOption("-RSC");
 	}
 	if (!aux.empty())
-		InputParam.RF = atoi(aux.c_str());
-	if (InputParam.RF < 0 or InputParam.RF > 1)
+		InputParam.RSC = atoi(aux.c_str());
+	if (InputParam.RSC < 0 or InputParam.RSC > 2)
 	{
 		cout << "ERROR: method value must be in {0,1}.\n\n";
 		MensajeAyuda();
@@ -3591,10 +3617,11 @@ void MensajeAyuda()
 	cout << "\t\t1\tPCF (by default)\n";
 	cout << "\t\t2\tNSLV model\n";
 	cout << "\t\t3\tOriginal Chi strategy 2\n";
-	cout << "\nRule Filtering Parameters: \n";
-	cout << "\t -RuleFilteringMethod <num> or -RF <num> to select the filtering rule process:\n";
-	cout << "\t\t0\tNo Filtering Method Applied (Value by default)\n";
-	cout << "\t\t1\tOnly are considered rules that classified at least one training example\n";
+	cout << "\nRule Selection Criteria: \n";
+	cout << "\t -RuleSelectionCriteria <num> or -RSC <num> to select the filtering rule process:\n";
+	cout << "\t\t0\tAll rules are considered (Value by default)\n";
+	cout << "\t\t1\tOnly are included the central rule of each example\n";
+	cout << "\t\t2\tThe best rule among those considered for each example is included\n";
 	cout << "\nInference Parameters: \n";
 	cout << "\t -InferenceModel <num> or -IM <num> to select the inference model:\n";
 	cout << "\t\t1\tStandard Inference\n";
