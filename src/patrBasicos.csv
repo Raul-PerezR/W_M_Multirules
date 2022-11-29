@@ -48,3 +48,5 @@ susy 3 18 Global 5000000.000000 5258.300000 64.564459 35.435541 67.015200 67.015
 ./W_M_Multirules -e ../../../aprendizajegenetico/BigDatBase_5/susy/susy -nlabel 3 -LM 2 -tm 64 -IM 4 -Nit -RSC 2
 susy 3 18 Global 5000000.000000 6325.200000 63.906835 36.093165 67.052040 67.052335 32.947665 0.000440 493.665106 0.000000 50.612774 0.000000 0.000000 0.000000
 ./W_M_Multirules -e ../../../aprendizajegenetico/BigDatBase_5/susy/susy -nlabel 3 -LM 2 -tm 64 -IM 4 -Nit -RSC 0
+susy 3 18 Global 5000000.000000 137656.500000 64.564459 35.435541 67.161980 67.162034 32.837966 0.000080 239.232058 0.000000 50.535111 0.000000 0.000000 0.000000
+./W_M_Multirules -e ../../../aprendizajegenetico/BigDatBase_5/susy/susy -nlabel 3 -LM 1 -tm 1 -IM 4 -Nit -wCP
