@@ -117,6 +117,24 @@ int Pattern::BetterEtiqueta(const VectorVar &V, int variable, const example_set 
 }
 
 //-----------------------------------------------------------------------------------------------------
+double AUC_measure(double TPrate, double FPrate)
+{
+	return (1 + TPrate + FPrate) / 2;
+}
+
+//-----------------------------------------------------------------------------------------------------
+double GM_measure(double TPrate, double NPrate)
+{
+	return sqrt(TPrate * NPrate);
+}
+
+//-----------------------------------------------------------------------------------------------------
+double ACC_measure(double TPrate, double NPrate)
+{
+	return sqrt(TPrate * NPrate);
+}
+
+//-----------------------------------------------------------------------------------------------------
 void ProcesarResultados(TestResult &result)
 {
 	double total_cubiertos = 0;
@@ -486,8 +504,46 @@ bool Ordenar_infoUp(const infoUp &x, const infoUp &y)
 }
 
 //-----------------------------------------------------------------------------------------------------
+void Pattern::Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces_NoModificaDicionario(const example_set &Es, const VectorVar &V, const int eje,
+																					 string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &current_tries,
+																					 vector<string> &listaDeReglas, int number_tries, int sz, int RSC)
+{
+	int j = actualVar;
+
+	if (adapt <= 0)
+	{ // la adaptacion con el ejemplo es 0
+		return;
+	}
+	else if (current_tries >= number_tries)
+	{ // Condicion de parada indica superado el número de reglas a extraer
+		return;
+	}
+	else if (j == V.N_Antecedente())
+	{ // Condicion de parada cuando se ha completado una regla
+		current_tries++;
+		// cout << current_tries << ") " << cadena << " -->" << adapt;
+		// cout << endl;
+		if ((current_tries == 1 and RSC == 1) or RSC == 2)
+		{ // RSC indica que devolverá solo las reglas centrales y current_tries=1 indica que es la regla central. Con RSC=2 se meten todas las que afectan.
+			listaDeReglas.push_back(cadena);
+		}
+	}
+	else
+	{ // Cuerpo de la recursion
+		for (int i = 0; i < trozos[j].trozoAcambiar.size(); i++)
+		{
+			string copy_cadena = cadena;
+			ponerEnCadena(copy_cadena, trozos[j].posCadenainicio, trozos[j].trozoAcambiar[i].subCadena);
+			// T-Norm product
+			// cout << copy_cadena << endl;
+			Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces_NoModificaDicionario(Es, V, eje, copy_cadena, j + 1, adapt * trozos[j].trozoAcambiar[i].adaptacion, trozos, current_tries, listaDeReglas, number_tries, sz, RSC);
+		}
+	}
+}
+
+//-----------------------------------------------------------------------------------------------------
 void Pattern::Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(const example_set &Es, const VectorVar &V, const int eje,
-																string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &current_tries, 
+																string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &current_tries,
 																vector<string> &listaDeReglas, int number_tries, int sz, int RSC)
 {
 	int j = actualVar;
@@ -505,7 +561,8 @@ void Pattern::Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(const example_se
 		current_tries++;
 		// cout << current_tries << ") " << cadena << " -->" << adapt;
 		// cout << endl;
-		if ((current_tries == 1 and RSC ==1) or RSC == 2){ //RSC indica que devolverá solo las reglas centrales y current_tries=1 indica que es la regla central. Con RSC=2 se meten todas las que afectan.
+		if ((current_tries == 1 and RSC == 1) /*or RSC == 2*/)
+		{ // RSC indica que devolverá solo las reglas centrales y current_tries=1 indica que es la regla central. Con RSC=2 se meten todas las que afectan.
 			listaDeReglas.push_back(cadena);
 		}
 		auto it = diccionario.find(cadena);
@@ -941,6 +998,196 @@ void Pattern::ExtraerPatronesBasicosAproximacionTFMRuben_Veces(const example_set
 		cout << "pulsa una tecla para continuar \n";
 		cin >> ch;*/
 	}
+
+	// Resumen final de resultados
+	auto it = diccionario.begin();
+	double sumatotal = 0, aciertostotal = 0;
+	while (it != diccionario.end())
+	{
+		double suma = 0, suma_adapt = 0;
+		int mayor = 0;
+		for (int i = 0; i < it->second.conseq.size() - 1; i++)
+		{
+			suma += it->second.eje_list[i];
+			suma_adapt += it->second.conseq[i];
+			result.cubiertos[i] += it->second.eje_list[i];
+			if (it->second.conseq[mayor] < it->second.conseq[i])
+			{
+				mayor = i;
+			}
+		}
+		aciertostotal += it->second.eje_list[mayor];
+		result.acc[mayor] += it->second.eje_list[mayor];
+		sumatotal += suma;
+		it->second.eje_list[it->second.conseq.size() - 1] = suma;
+		/******** salida de los antecedentes encontrados **********/
+		/*cout << it->first << "\t(" << it->second.eje_list[0];
+		for (int i = 1; i < it->second.conseq.size(); i++)
+		{
+			cout << " | " << it->second.eje_list[i];
+		}
+		cout << ")";
+		cout << endl;*/
+		/**********************************************************/
+		/******** salida de los antecedentes porcentaje acumulacion adaptacion **********/
+		/*int a = (it->second.conseq[0] / suma_adapt)*100;
+		cout << it->first << "\t(" << a;
+		for (int i=1; i < it->second.conseq.size(); i++){
+			a = (it->second.conseq[i] / suma_adapt)*100;
+			cout << " | " << a;
+		}
+		cout << ")";
+		cout << endl;*/
+		/**********************************************************/
+
+		it++;
+	}
+
+	cout << "Patterns: " << diccionario.size() << endl;
+	/*char ch;
+	cout << "pulsa una tecla" << endl;
+	cin >> ch;*/
+
+	// cout << "Ejemplos: " << sumatotal << endl;
+	// cout << "Aciertos: " << 100.0 * (aciertostotal / sumatotal) << endl;
+	ProcesarResultados(result);
+}
+
+//--------------------------------------------------  Versión redundancia por número de veces (tries)     ---------------------------------------------------
+void Pattern::CalculandoPeso_TFMRuben_Veces(const example_set &E, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam)
+{
+
+	cout << "Calculating the weight of patterns ......\n"
+		 << endl;
+	// Crear la variable result
+	int n_clases = V.SizeDomain(V.Consecuente());
+	result.cubiertos.clear();
+	result.no_cubiertos.clear();
+	result.acc.clear();
+	result.error_intrinseco_porClase.clear();
+
+	for (int i = 0; i < n_clases; i++)
+	{
+		result.cubiertos.push_back(0);
+		result.no_cubiertos.push_back(0);
+		result.acc.push_back(0);
+		result.error_intrinseco_porClase.push_back(0);
+	}
+
+	vector<string> listaDeReglas;
+	unordered_map<string, info> diccionario_reducido;
+
+	vector<infoUp> trozos;
+	// Construyo el patron
+	for (int i = 0; i < E.N_Examples() and (InputParam.sz == 0 or (InputParam.sz > 0 and diccionario.size() < InputParam.sz)); i++)
+	{
+		// pinto el ejemplos
+		/*cout << "(" << E.Data(i,0);
+		for (int j=1; j<V.N_Antecedente(); j++){
+			cout <<", " << E.Data(i,j);
+		}
+		cout << ") ----- >" <<  E.Data(i,V.Consecuente()) << endl;
+		char ch;
+		cin >> ch;*/
+		listaDeReglas.clear();
+
+		deleteLine2();
+		cout << "Revisiting:   " << (i * 100.0) / E.N_Examples() << "\%"
+			 << "\t\#Rules= " << diccionario.size() << endl;
+		string coded_rule = "";
+		trozos.clear();
+
+		int tama = 0;
+		for (int j = 0; j < V.N_Antecedente(); j++)
+		{
+			string coded_var = "";
+			infoUp datos;
+
+			datos.variable = j;
+			datos.posCadenainicio = tama;
+			datos.key = 1;
+
+			for (int l = 0; l < V.SizeDomain(j); l++)
+			{
+				coded_rule.push_back('-');
+				coded_var.push_back('0');
+			}
+
+			for (int l = 0; l < V.SizeDomain(j); l++)
+			{
+				info2 datos2;
+				double d = V.Adaptacion(E.Data(i, j), j, l);
+				if (d > 0)
+				{
+					datos2.adaptacion = d;
+					coded_var[l] = '1';
+					datos2.subCadena = coded_var;
+					coded_var[l] = '0';
+					// meter las modificaciones ordenadas.
+					if (datos.trozoAcambiar.size() != 1)
+						datos.trozoAcambiar.push_back(datos2);
+					else
+					{
+						if (datos.trozoAcambiar[0].adaptacion >= datos2.adaptacion)
+						{
+							datos.key = datos.trozoAcambiar[0].adaptacion - datos2.adaptacion;
+							datos.trozoAcambiar.push_back(datos2);
+						}
+						else
+						{
+							datos.key = datos2.adaptacion - datos.trozoAcambiar[0].adaptacion;
+							datos.trozoAcambiar.push_back(datos2);
+							swap(datos.trozoAcambiar[0], datos.trozoAcambiar[1]);
+						}
+					}
+				}
+			}
+			// Aniado eliminar esa variables
+			/*info2 datos3;
+			datos3.adaptacion = 1.0;
+			for (int l=0; l<V.SizeDomain(j); l++)
+				coded_var[l]='1';
+			datos3.subCadena = coded_var;
+			datos.trozoAcambiar.push_back(datos3);*/
+
+			if (InputParam.NormalizedMu) // normalized adaptation
+			{
+				for (int t = 0; t < datos.trozoAcambiar.size(); t++)
+				{
+					datos.trozoAcambiar[t].adaptacion = datos.trozoAcambiar[t].adaptacion / datos.trozoAcambiar[0].adaptacion;
+				}
+				if (datos.trozoAcambiar.size() > 1)
+				{
+					datos.key = datos.trozoAcambiar[0].adaptacion - datos.trozoAcambiar[1].adaptacion;
+				}
+			}
+			trozos.push_back(datos);
+			tama += V.SizeDomain(j);
+		}
+
+		// Incluir el método sort (requiere #include <algorithm>) para ordenar el vector.
+		sort(trozos.begin(), trozos.end(), Ordenar_infoUp);
+		/*for (int i =0; i < trozos.size(); i++){
+			cout << "variable: " << trozos[i].variable << "\t" << trozos[i].key;
+			for (int j = 0; j< trozos[i].trozoAcambiar.size(); j++){
+				cout << "   (" << trozos[i].trozoAcambiar[j].subCadena << ")"  << trozos[i].trozoAcambiar[j].adaptacion;
+			}
+			cout << endl;
+		}
+	  cout << endl;*/
+
+		int current_tries = 0;
+		listaDeReglas.clear();
+		Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces_NoModificaDicionario(E, V, i, coded_rule, 0, 1, trozos, current_tries, listaDeReglas, InputParam.tm, InputParam.sz, InputParam.RSC);
+		pair<string, info> aux;
+		aux = BetterPatron(listaDeReglas);
+		diccionario_reducido.insert(aux);
+		/*char ch;
+		cout << "pulsa una tecla para continuar \n";
+		cin >> ch;*/
+	}
+	
+	CambiarDiccionario(diccionario_reducido);
 
 	// Resumen final de resultados
 	auto it = diccionario.begin();
@@ -2898,7 +3145,6 @@ void Pattern::CalculoExactoDeAdaptacionesAPatrones(const example_set &E, const V
 {
 	cout << "Exhaustive method for obtaining the weights.....\n\n";
 
-
 	// Reinicio los valores asociados a los patrones
 	for (auto it = diccionario.begin(); it != diccionario.end(); it++)
 	{
@@ -2910,7 +3156,7 @@ void Pattern::CalculoExactoDeAdaptacionesAPatrones(const example_set &E, const V
 	}
 
 	// Para cada uno de los patrones encontrados ponerle sus valores de n+ y n-
-	int i=0;
+	int i = 0;
 	for (auto it = diccionario.begin(); it != diccionario.end(); it++)
 	{
 		deleteLine2();
@@ -3076,30 +3322,35 @@ void Pattern::CalcularPesoYClases(int weightRuleModel)
 	}
 }
 
-
 //-----------------------------------------------------------------------------------------------------
 
-pair<string,info> Pattern::ObtenerPatron(string antecedente){
-	pair<string,info> aux;
+pair<string, info> Pattern::ObtenerPatron(string antecedente)
+{
+	pair<string, info> aux;
 	aux.first = "noEncontrado";
 	auto p = diccionario.find(antecedente);
-	if (p!=diccionario.end()){
-		aux.first  = p->first;
+	if (p != diccionario.end())
+	{
+		aux.first = p->first;
 		aux.second = p->second;
 	}
-	else{
+	else
+	{
 		cout << "noEncontrado " << antecedente << endl;
 	}
 	return aux;
 }
 
 //-----------------------------------------------------------------------------------------------------
-double ValoracionNMas_NMenos(const info &x){
+double ValoracionNMas_NMenos(const info &x)
+{
 	double max = x.conseq[0], sum = max;
 	int posMax = 0;
-	for (int i=1; i<x.conseq.size(); i++){
+	for (int i = 1; i < x.conseq.size(); i++)
+	{
 		sum += x.conseq[i];
-		if (max<x.conseq[i]){
+		if (max < x.conseq[i])
+		{
 			posMax = i;
 			max = x.conseq[i];
 		}
@@ -3109,29 +3360,28 @@ double ValoracionNMas_NMenos(const info &x){
 
 //-----------------------------------------------------------------------------------------------------
 
-pair<string,info> Pattern::BetterPatron(const vector<string> & listaPatrones){
-	pair<string,info> aux, better;
+pair<string, info> Pattern::BetterPatron(const vector<string> &listaPatrones)
+{
+	pair<string, info> aux, better;
 	better = ObtenerPatron(listaPatrones[0]);
 	double mejor = ValoracionNMas_NMenos(better.second);
 
-	for (int i = 1; i < listaPatrones.size(); i++){
+	for (int i = 1; i < listaPatrones.size(); i++)
+	{
 		aux = ObtenerPatron(listaPatrones[i]);
 		double valor = ValoracionNMas_NMenos(aux.second);
-		if (valor>mejor) 
+		if (valor > mejor)
 			better = aux;
 	}
 	return better;
 }
 
-
 //-----------------------------------------------------------------------------------------------------
-void Pattern::CambiarDiccionario(const unordered_map<string, info> &new_dicionario){
+void Pattern::CambiarDiccionario(const unordered_map<string, info> &new_dicionario)
+{
 	diccionario.clear();
 	diccionario = new_dicionario;
 }
-
-
-
 
 //-----------------------------------------------------------------------------------------------------
 

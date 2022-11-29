@@ -2072,7 +2072,7 @@ void CalculoEstimadoSobrePatrones(example_set &E, const VectorVar &V, int num_pa
 
 	for (int i = 0; i < 15; i++)
 	{
-		SumReSult[i] = 1.0 * SumReSult[i] / 10;
+		SumReSult[i] = 1.0 * SumReSult[i] / num_par;
 	}
 	cerr << endl;
 
@@ -2218,7 +2218,7 @@ vector<vector<double>> CalculoEstimadoSobrePatrones2(example_set &E, const Vecto
 
 	cerr << "\n\t------------------ Media Test -----------" << endl;
 	TestResult aux2;
-	cerr << "Tiempo Medio de Aprendizaje: " << (1.0 * (crono) / CLOCKS_PER_SEC) / 10 << endl;
+	cerr << "Tiempo Medio de Aprendizaje: " << (1.0 * (crono) / CLOCKS_PER_SEC) / num_par << endl;
 	CalcularMediaTestResult(result, aux2);
 	PintaResultadosTest(aux2, true);
 
@@ -2614,12 +2614,7 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 			break;
 		case 2: // Sería la versión del chi original pero cambiando la regla central por la mejor reglas entre las consideradas para ese ejemplo.
 		        if (InputParam.tm > 1){
-					pair<string,info> aux;
-					for (int i=0; i<listaDeReglas.size(); i++){
-						aux = Patrones2.BetterPatron(listaDeReglas[i]);
-						diccionario_reducido.insert(aux);
-					}
-					Patrones2.CambiarDiccionario(diccionario_reducido);
+					Patrones2.CalculandoPeso_TFMRuben_Veces(E_Par_Completo, V2, resultTrain[par], InputParam);
 		        /*cout << "Tamano lista de reglas: " << diccionario_reducido.size() << endl;
 				char ch; cin >> ch;*/
 				}
@@ -2924,7 +2919,7 @@ PintaResultadosTest(aux2, true);*/
 
 	s.clear();
 	s.push_back(E.N_Examples());
-	s.push_back(media_patrones / 10.0);
+	s.push_back(media_patrones / num_par);
 	s.push_back(aux3.acierto_global);
 	s.push_back(aux3.error_intrinseco);
 	s.push_back(aux2.acierto_global);

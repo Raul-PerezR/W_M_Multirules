@@ -114,6 +114,9 @@ public:
   void ExtraerPatronesBasicosAproximacionTFMRuben_DHamming(const example_set &Es, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam);
   void ExtraerPatronesBasicosAproximacionMixed_Umbral_Norm_and_hamming(const example_set &E, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam);
 
+  void CalculandoPeso_TFMRuben_Veces(const example_set &Es, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam);
+
+  void Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces_NoModificaDicionario(const example_set &Es, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &current_tries, vector<string> &listaDeReglas, int number_tries, int sz, int RSC);  
   void Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Veces(const example_set &Es, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &current_tries, vector<string> &listaDeReglas, int number_tries, int sz, int RSC);  
   void Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_Umbral(const example_set &E, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &considered, double &Threshold, int sz);
   void Aprendizaje_RecursivoUnEjemplo_WM_Umbral_Normalizado(const example_set &Es, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &considered, double Threshold, int sz);
