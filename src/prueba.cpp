@@ -3609,6 +3609,7 @@ void MensajeAyuda()
 	cout << "\t-weightCalculateProcess or -wCP (by default is off, that is, it is calculated by quick new version)\n";
 	cout << "\t-NormalizedMu uses the normalized adaptation degrees (by default the normalization is not used)\n";
 	cout << "\t-weightRuleModel <num> or -w <num> define how rule's weight is calculated by the Chi algorithm:\n";
+	cout << "\t\t0\tAll rules with weight = 1\n";
 	cout << "\t\t1\tPCF (by default)\n";
 	cout << "\t\t2\tNSLV model\n";
 	cout << "\t\t3\tOriginal Chi strategy 2\n";
