@@ -50,3 +50,12 @@ census 3 9 Global 142521.000000 1543602.300000 98.192332 1.807668 50.405905 95.9
 ./W_M_Multirules -e ../../../aprendizajegenetico/BigDataBases/fars_0_vs_4_/fars_0_vs_4_ -nlabel 3 -LM 2 -tm 64 -IM 4 -Nit -RSC 0
 fars_0_vs_4_ 3 5 Global 62123.000000 166698.700000 100.000000 0.000000 52.404102 100.000000 0.000000 47.595898 2.556337 0.000000 0.244438 0.000000 0.000000 0.000000
 ./W_M_Multirules -e ../../../aprendizajegenetico/BigDataBases/kddcup_full_normal_versus_DOS/kddcup_full_normal_versus_DOS -nlabel 3 -LM 1 -tm 1 -IM 4 -Nit -wCP
+kddcup_full_normal_versus_DOS 3 27 Global 4856151.000000 754.900000 99.950812 0.049188 99.947572 99.950474 0.049526 0.002904 833.118024 0.000000 13.282025 0.000000 0.000000 0.000000
+./W_M_Multirules -e ../../../aprendizajegenetico/BigDataBases/poker_0_vs_1/poker_0_vs_1 -nlabel 3 -LM 1 -tm 1 -IM 4 -Nit -wCP
+poker_0_vs_1 3 5 Global 946799.000000 190413.800000 77.643782 22.356218 57.722283 57.731856 42.268144 0.016582 17752.823712 0.000000 0.804898 0.000000 0.000000 0.000000
+./W_M_Multirules -e ../../../aprendizajegenetico/BigDataBases/covtype_2_vs_1/covtype_2_vs_1 -nlabel 3 -LM 1 -tm 1 -IM 4 -Nit -wCP
+covtype_2_vs_1 3 10 Global 495141.000000 7474.000000 77.461886 22.538114 74.577949 74.579304 25.420696 0.001818 1585.567229 0.000000 3.949066 0.000000 0.000000 0.000000
+./W_M_Multirules -e ../../../aprendizajegenetico/BigDataBases/census/census -nlabel 3 -LM 1 -tm 1 -IM 4 -Nit -wCP
+census 3 9 Global 142521.000000 73598.800000 98.815379 1.184621 49.900716 96.065215 3.934785 48.055374 1784.832871 0.000000 0.668022 0.000000 0.000000 0.000000
+./W_M_Multirules -e ../../../aprendizajegenetico/BigDataBases/fars_0_vs_4_/fars_0_vs_4_ -nlabel 3 -LM 1 -tm 1 -IM 4 -Nit -wCP
+fars_0_vs_4_ 3 5 Global 62123.000000 38233.600000 100.000000 0.000000 49.884906 100.000000 0.000000 50.115094 356.596471 0.000000 0.197950 0.000000 0.000000 0.000000
