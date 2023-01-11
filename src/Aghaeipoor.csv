@@ -1,3 +1,4 @@
+Database Lab #Cont Global #Ex #Rules #Train #ErrorTrain #Test #TestWNC #Error %NC TrainTime Nose TestTime
 ./W_M_Multirules -e ../../../aprendizajegenetico/BigDatBase_5/susy/susy -nlabel 3 -LM 1 -tm 1 -IM 4 -Nit
 susy 3 18 Global 5000000.000000 5258.300000 64.456655 35.543345 68.546620 68.546798 31.453202 0.000260 73.183425 0.000000 42.331254 0.000000 0.000000 0.000000
 ./W_M_Multirules -e ../../../aprendizajegenetico/BigDatBase_5/susy/susy -nlabel 3 -LM 2 -tm 64 -IM 4 -Nit -RSC 1
@@ -9,3 +10,11 @@ susy 3 18 Global 5000000.000000 137656.500000 64.564459 35.435541 67.161980 67.1
 ./W_M_Multirules -e ../../../aprendizajegenetico/BigDatBase_5/susy/susy -nlabel 3 -LM 1 -tm 1 -IM 4 -Nit -wCP
 susy 3 18 Global 5000000.000000 10516.600000 64.456655 35.543345 62.481220 62.481382 37.518618 0.000260 14678.581435 0.000000 55.165288 0.000000 0.000000 0.000000
 
+./W_M_Multirules -e ../../../aprendizajegenetico/BigDatBase_5/BNG_heart-c/BNG_heart-c -LM 1 -IM 4 -nlabel 3 -Nit -O Aghaeipoor.csv
+BNG_heart-c 3 6 Global 1000000.000000 43645.400000 88.603725 11.396275 87.696900 87.725060 12.274940 0.032100 9.665531 0.000000 1.833118 0.000000 0.000000 0.000000
+./W_M_Multirules -e ../../../aprendizajegenetico/BigDatBase_5/BNG_Australian/BNG_Australian -LM 1 -IM 4 -nlabel 3 -Nit -O Aghaeipoor.csv
+BNG_Australian 3 14 Global 1000000.000000 9281.600000 85.131375 14.868625 84.135700 84.136373 15.863627 0.000800 10.621790 0.000000 2.468693 0.000000 0.000000 0.000000
+./W_M_Multirules -e ../../../aprendizajegenetico/BigDatBase_5/covtype_2_vs_1/covtype_2_vs_1 -LM 1 -IM 4 -nlabel 3 -Nit -O Aghaeipoor.csv
+covtype_2_vs_1 3 10 Global 495141.000000 7300.000000 77.504388 22.495612 78.076144 78.078036 21.921964 0.002424 19.075042 0.000000 6.438475 0.000000 0.000000 0.000000
+./W_M_Multirules -e ../../../aprendizajegenetico/BigDatBase_5/poker_0_vs_2_/poker_0_vs_2_ -LM 1 -IM 4 -nlabel 3 -Nit -O Aghaeipoor.csv
+poker_0_vs_2_ 3 10 Global 562529.000000 51103.200000 92.650912 7.349088 98.677246 98.677246 1.322754 0.000000 5.116767 0.000000 1.157206 0.000000 0.000000 0.000000
