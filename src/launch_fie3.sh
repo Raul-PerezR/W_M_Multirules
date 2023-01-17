@@ -38,7 +38,6 @@ echo "Database Lab #Cont Global #Ex #Rules #Train #ErrorTrain #Test #TestWNC #Er
 echo "===========================================================================================================================" >> ./QckChi_result_7labels.csv
 
 
-
 #./W_M_Multirules -e ../databases/banana/banana -nlabel 5 -LM 1 -IM 4 -Nit   -O ./QckChi_result_5labels.csv    
 #./W_M_Multirules -e ../databases/iris/iris -nlabel 5 -LM 1 -IM 4 -Nit   -O ./QckChi_result_5labels.csv    
 #./W_M_Multirules -e ../databases/led7digit/led7digit -nlabel 5 -LM 1 -IM 4 -Nit   -O ./QckChi_result_5labels.csv    

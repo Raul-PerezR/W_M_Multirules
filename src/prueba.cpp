@@ -2102,7 +2102,7 @@ void CalculoEstimadoSobrePatrones(example_set &E, const VectorVar &V, int num_pa
 
 //-----------------------------------------------------------------------------------------------------
 
-vector<vector<double>> CalculoEstimadoSobrePatrones2(example_set &E, const VectorVar &V, int num_par)
+vector<vector<double>> CalculoEstimadoSobrePatrones2(example_set &E, const VectorVar &V, int num_par, ProgramParameters InputParam)
 {
 	vector<TestResult> result;
 	TestResult porDefecto, aux;
@@ -2154,7 +2154,7 @@ vector<vector<double>> CalculoEstimadoSobrePatrones2(example_set &E, const Vecto
 		result.push_back(porDefecto);
 
 		etapa = clock();
-		Patrones.ExtraerPatronesBasicos(E_Par_Completo, V, result[par]);
+		Patrones.ExtraerPatronesBasicos(E_Par_Completo, V, result[par], InputParam);
 		etapa = clock() - etapa;
 		crono += etapa;
 		//Patrones.TestearPatronesBasicos(E_Par_Completo,V,result[par]);
@@ -2185,8 +2185,8 @@ vector<vector<double>> CalculoEstimadoSobrePatrones2(example_set &E, const Vecto
 		cerr << "Tiempo: " << 1.0 * (etapa) / CLOCKS_PER_SEC << endl;
 
 		cerr << "\n\t--------------------- Test  -----------" << endl;
-		Patrones.TestearPatronesBasicos(E_Par_Test, V, result[par]);
-		PintaResultadosTest(result[par], true);
+		Patrones.TestearPatronesBasicos(E_Par_Test, V, result[par], InputParam);
+		PintaResultadosTest(result[par], true, InputParam);
 		/*cerr << "% Acierto Test (Global) : " << result[par].acierto_global << endl;
 		cerr << "% nuevos patrones Test  : " << result[par].porcentaje_nuevos_patrones << endl;
 		cerr << "% Test sin nocubiertos  : " << result[par].acierto_sinNoCubiertos << endl;
@@ -2219,8 +2219,8 @@ vector<vector<double>> CalculoEstimadoSobrePatrones2(example_set &E, const Vecto
 	cerr << "\n\t------------------ Media Test -----------" << endl;
 	TestResult aux2;
 	cerr << "Tiempo Medio de Aprendizaje: " << (1.0 * (crono) / CLOCKS_PER_SEC) / num_par << endl;
-	CalcularMediaTestResult(result, aux2);
-	PintaResultadosTest(aux2, true);
+	CalcularMediaTestResult(result, aux2, InputParam);
+	PintaResultadosTest(aux2, true, InputParam);
 
 	s.clear();
 	s.push_back(E.N_Examples());
@@ -2287,7 +2287,7 @@ string PonerTiempo(double x)
 	return salida;
 }
 
-vector<vector<double>> CalculoEstimadoSobrePatrones2_Para5subconjuntos(example_set &E, const VectorVar &V5, const VectorVar &V3, const VectorVar &V2, int num_par)
+vector<vector<double>> CalculoEstimadoSobrePatrones2_Para5subconjuntos(example_set &E, const VectorVar &V5, const VectorVar &V3, const VectorVar &V2, int num_par, ProgramParameters InputParam)
 {
 	vector<TestResult> result, result2, resultTrain, resultTrain2;
 	TestResult porDefecto, aux;
@@ -2343,11 +2343,11 @@ vector<vector<double>> CalculoEstimadoSobrePatrones2_Para5subconjuntos(example_s
 
 		etapa = clock();
 		cout << "...... Aprendiendo con 2 etiquetas .....\n";
-		Patrones2.ExtraerPatronesBasicos(E_Par_Completo, V2, resultTrain[par / 2]);
+		Patrones2.ExtraerPatronesBasicos(E_Par_Completo, V2, resultTrain[par / 2],  InputParam);
 		cout << "...... Aprendiendo con 3 etiquetas .....\n";
-		Patrones3.ExtraerPatronesBasicos(E_Par_Completo, V3, resultTrain[par / 2]);
+		Patrones3.ExtraerPatronesBasicos(E_Par_Completo, V3, resultTrain[par / 2], InputParam);
 		cout << "...... Aprendiendo con 5 etiquetas .....\n";
-		Patrones5.ExtraerPatronesBasicos(E_Par_Completo, V5, resultTrain[par / 2]);
+		Patrones5.ExtraerPatronesBasicos(E_Par_Completo, V5, resultTrain[par / 2], InputParam);
 		etapa = clock() - etapa;
 		crono += etapa;
 		//Patrones.TestearPatronesBasicos(E_Par_Completo,V,result[par]);
@@ -2379,11 +2379,11 @@ vector<vector<double>> CalculoEstimadoSobrePatrones2_Para5subconjuntos(example_s
 		cerr << "Tiempo: " << 1.0 * (etapa) / CLOCKS_PER_SEC << endl;
 
 		cerr << "\n\t--------------------- Test  -----------" << endl;
-		Patrones5.TestearPatronesBasicos(E_Par_Test, V5, result[par / 2]);
+		Patrones5.TestearPatronesBasicos(E_Par_Test, V5, result[par / 2], InputParam);
 		//Patrones2.TestearPatronesBasicos(E_Par_Test,V2,result[par/2]);
-		PintaResultadosTest(result[par / 2], true);
+		PintaResultadosTest(result[par / 2], true, InputParam);
 		Patrones5.TestearRecursivoVariosDicionarios(E_Par_Test, V5, Patrones3, V3, Patrones2, V2, result2[par / 2]);
-		PintaResultadosTest(result2[par / 2], true);
+		PintaResultadosTest(result2[par / 2], true, InputParam);
 		//Patrones.InferirDicionario(E_Par_Test,V);
 		/*cerr << "% Acierto Test (Global) : " << result[par].acierto_global << endl;
 		cerr << "% nuevos patrones Test  : " << result[par].porcentaje_nuevos_patrones << endl;
@@ -2416,21 +2416,21 @@ vector<vector<double>> CalculoEstimadoSobrePatrones2_Para5subconjuntos(example_s
 
 	cerr << "\n\t------------------ Media Training 1 -----------" << endl;
 	TestResult aux2;
-	CalcularMediaTestResult(resultTrain, aux2);
-	PintaResultadosTest(aux2, true);
+	CalcularMediaTestResult(resultTrain, aux2, InputParam);
+	PintaResultadosTest(aux2, true, InputParam);
 
 	cerr << "\n\t------------------ Media Test 1 -----------" << endl;
 	cerr << "Tiempo Medio de Aprendizaje: " << (1.0 * (crono) / CLOCKS_PER_SEC) / 5 << endl;
-	CalcularMediaTestResult(result, aux2);
-	PintaResultadosTest(aux2, true);
+	CalcularMediaTestResult(result, aux2, InputParam);
+	PintaResultadosTest(aux2, true, InputParam);
 
 	cerr << "\n\t------------------ Media Training 2 -----------" << endl;
-	CalcularMediaTestResult(resultTrain2, aux2);
-	PintaResultadosTest(aux2, true);
+	CalcularMediaTestResult(resultTrain2, aux2, InputParam);
+	PintaResultadosTest(aux2, true, InputParam);
 
 	cerr << "\n\t------------------ Media Test 2 -----------" << endl;
-	CalcularMediaTestResult(result2, aux2);
-	PintaResultadosTest(aux2, true);
+	CalcularMediaTestResult(result2, aux2, InputParam);
+	PintaResultadosTest(aux2, true, InputParam);
 
 	s.clear();
 	s.push_back(E.N_Examples());
@@ -2475,6 +2475,7 @@ void DescripcionExperimento (const ProgramParameters &InputParam){
 	cout << "Maximum Number of Evaluated Rules on Inference Method: " << InputParam.maxrules << endl;
 	cout << "Pertentage of example from Test Set used on Inference Method: " << InputParam.percentTestSet << endl;
 	cout << "Learning Method: " << InputParam.LM << endl;
+	cout << "Performance measure: " << InputParam.acc << endl;
 	cout << "Parameter times in Learning Method: " << InputParam.tm << endl;
 	cout << "Parameter Threshold in Learning Method: "<< InputParam.th << endl;
 	cout << "Parameter d of Hamming version in Learning Method: " << InputParam.ld << endl;
@@ -2501,17 +2502,25 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 	// Creo el dominio con n etiquetas en las variables continuas
 	for (int i = 0; i < V.N_Antecedente(); i++)
 	{
-		if (!V.Variable(i).IsDiscrete())
-		{
+		if (InputParam.allContinuous){
+		// Poner todas las variables antecedentes como continuas
 			variable_t aux;
-			aux.Asigna(nlabels, V.Variable(i).Inf_Range(), V.Variable(i).Sup_Range(), true, true, V.Variable(i).Name());
-			V2.Asigna(i, aux);
+		  	aux.Asigna(nlabels, V.Variable(i).Inf_Range(), V.Variable(i).Sup_Range(), true, true, V.Variable(i).Name());
+		  	V2.Asigna(i, aux);
 		}
-		else
-		{
-			V2.Asigna(i, V.Variable(i));
-		}
-	}
+		else {		// Mantener las discretas como discretas
+			if (!V.Variable(i).IsDiscrete())
+			{
+				variable_t aux;
+				aux.Asigna(nlabels, V.Variable(i).Inf_Range(), V.Variable(i).Sup_Range(), true, true, V.Variable(i).Name());
+				V2.Asigna(i, aux);
+			}
+			else
+			{
+				V2.Asigna(i, V.Variable(i));
+			}
+	}		
+}
 
     /*V2.Pinta();
 	char ch;
@@ -2772,8 +2781,8 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 		}*/
 		//cerr << "Media Train clase mayor : " << result[par].acierto_global << endl;
 		//cerr << "\t-------------------- Training -----------" << endl;
-		ProcesarResultados(resultTrain[par]);
-		//PintaResultadosTest(resultTrain[par], true);
+		ProcesarResultados(resultTrain[par], InputParam);
+		//PintaResultadosTest(resultTrain[par], true, InputParam);
 
 		cerr << "\n\t--------------------- Test  -----------" << endl;
 		double peso;
@@ -2896,7 +2905,7 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 
 			} // Este es el final de (A) para la inferencia recursiva.
 			timePorcion = 1.0 * (clock() - timePorcion);
-			ProcesarResultados(resultRecur[par]);
+			ProcesarResultados(resultRecur[par], InputParam);
 			fstream f;
 			cout << endl;
 		}
@@ -2904,27 +2913,27 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 		timetestR += t_infer_training;
 		timetestC += inicio_trozos;
 
-		ProcesarResultados(resultRecur[par]);
-		PintaResultadosTest(resultRecur[par], true);
+		ProcesarResultados(resultRecur[par], InputParam);
+		PintaResultadosTest(resultRecur[par], true, InputParam);
 	}
 
 	//cerr << "\n\t------------------ Media Test -----------" << endl;
 	TestResult aux2, aux3;
-	CalcularMediaTestResult(resultTrain, aux3);
-	CalcularMediaTestResult(resultRecur, aux2);
+	CalcularMediaTestResult(resultTrain, aux3, InputParam);
+	CalcularMediaTestResult(resultRecur, aux2, InputParam);
 	/*cout << "--Training \n";
-PintaResultadosTest(aux3, true);
+PintaResultadosTest(aux3, true, InputParam);
 cout << "--Test     \n";
-PintaResultadosTest(aux2, true);*/
+PintaResultadosTest(aux2, true, InputParam);*/
 
 	s.clear();
 	s.push_back(E.N_Examples());
 	s.push_back(media_patrones / num_par);
 	s.push_back(aux3.acierto_global);
-	s.push_back(aux3.error_intrinseco);
+	if (InputParam.acc == 0)	s.push_back(aux3.error_intrinseco); else s.push_back(-1);
 	s.push_back(aux2.acierto_global);
 	s.push_back(aux2.acierto_sinNoCubiertos);
-	s.push_back(aux2.error_intrinseco);
+	if (InputParam.acc == 0) s.push_back(aux2.error_intrinseco); else s.push_back(-1);
 	s.push_back(aux2.porcentaje_nuevos_patrones);
 	s.push_back((1.0 * timetrain / num_par) / CLOCKS_PER_SEC); // Tiempo de entrenamiento
 	s.push_back((1.0 * timetestR / num_par) / CLOCKS_PER_SEC); // Tiempo inferencia sobre el conjunto de entrenamiento
@@ -2960,7 +2969,7 @@ PintaResultadosTest(aux2, true);*/
 
 //-----------------------------------------------------------------------------------------------------
 
-vector<vector<double>> CalculoEstimadoSobrePatrones3(example_set &E, const VectorVar &V, int num_par)
+vector<vector<double>> CalculoEstimadoSobrePatrones3(example_set &E, const VectorVar &V, int num_par, ProgramParameters InputParam)
 {
 	vector<TestResult> result;
 	TestResult porDefecto, aux, porDefecto2;
@@ -3009,8 +3018,8 @@ vector<vector<double>> CalculoEstimadoSobrePatrones3(example_set &E, const Vecto
 		salida.push_back(s);
 	}
 
-	P2.ExtraerPatronesBasicos(E, V2, porDefecto);
-	P3.ExtraerPatronesBasicos(E, V3, porDefecto2);
+	P2.ExtraerPatronesBasicos(E, V2, porDefecto, InputParam);
+	P3.ExtraerPatronesBasicos(E, V3, porDefecto2, InputParam);
 	cerr << "Numero de Ejemplos: " << E.N_Examples() << endl;
 	for (int i = 0; i < V.SizeDomain(V.Consecuente()); i++)
 	{
@@ -3048,7 +3057,7 @@ vector<vector<double>> CalculoEstimadoSobrePatrones3(example_set &E, const Vecto
 		example_set E_Par_Test = E.Extract_Test_Set(par, V.Consecuente());
 
 		result.push_back(porDefecto);
-		Patrones2.ExtraerPatronesBasicos(E_Par_Completo, V2, result[par]);
+		Patrones2.ExtraerPatronesBasicos(E_Par_Completo, V2, result[par], InputParam);
 		//Patrones3.ExtraerPatronesBasicos(E_Par_Completo,V3, result[par]);
 		//Patrones.TestearPatronesBasicos(E_Par_Completo,V,result[par]);
 
@@ -3141,7 +3150,7 @@ vector<vector<double>> CalculoEstimadoSobrePatrones3(example_set &E, const Vecto
 				}
 			}
 		}
-		PintaResultadosTest(result[par], true);
+		PintaResultadosTest(result[par], true, InputParam);
 		/*cerr << "% Acierto Test (Global) : " << result[par].acierto_global << endl;
 		cerr << "% nuevos patrones Test  : " << result[par].porcentaje_nuevos_patrones << endl;
 		cerr << "% Test sin nocubiertos  : " << result[par].acierto_sinNoCubiertos << endl;
@@ -3173,8 +3182,8 @@ vector<vector<double>> CalculoEstimadoSobrePatrones3(example_set &E, const Vecto
 
 	cerr << "\n\t------------------ Media Test -----------" << endl;
 	TestResult aux2;
-	CalcularMediaTestResult(result, aux2);
-	PintaResultadosTest(aux2, true);
+	CalcularMediaTestResult(result, aux2, InputParam);
+	PintaResultadosTest(aux2, true, InputParam);
 
 	s.clear();
 	s.push_back(E.N_Examples());
@@ -3263,6 +3272,21 @@ int main(int argc, char *argv[])
 	if (InputParam.LM < 0 or InputParam.LM > 6)
 	{
 		cout << "ERROR: Learning Model bad defined.\n\n";
+		MensajeAyuda();
+		exit(0);
+	}
+
+    // Leyendo el parametro de "accuracy" para saber el tipo de medida sobre la clasificacion
+	// 0: accuracy (by default), 1: AUC, 2: Geometric Mean
+	InputParam.acc = 0;
+	aux = input.getCmdOption("-acc");
+	if (!aux.empty())
+	{
+		InputParam.acc = atoi(aux.c_str());
+	}
+	if (InputParam.acc < 0 or InputParam.acc > 2)
+	{
+		cout << "ERROR: acc must be an integer parameter in {0,1,2}.\n\n";
 		MensajeAyuda();
 		exit(0);
 	}
@@ -3400,6 +3424,14 @@ int main(int argc, char *argv[])
 	{
 		InputParam.NormalizedMu = true;
 	}
+
+	// Considering all variables (nominal included) like continuous
+	InputParam.allContinuous = false;
+	if (input.cmdOptionExists("-allContinuous"))
+	{
+		InputParam.allContinuous = true;
+	}
+
 
 	// Fichero de salida de resultados
 	InputParam.outputFile = "./patrBasicos.csv";
@@ -3608,13 +3640,18 @@ void MensajeAyuda()
 	cout << "\t-NotInferenceTraining or -Nit does not apply real inference on training set (it is an estimation obtained from the learning process). By default not included\n";
 	cout << "\t-weightCalculateProcess or -wCP (by default is off, that is, it is calculated by quick new version)\n";
 	cout << "\t-NormalizedMu uses the normalized adaptation degrees (by default the normalization is not used)\n";
+	cout << "\t-allContinuous actived considers all variables (nominals included) like continuous (by default this parameter is false)\n";
 	cout << "\t-weightRuleModel <num> or -w <num> define how rule's weight is calculated by the Chi algorithm:\n";
 	cout << "\t\t0\tAll rules with weight = 1\n";
 	cout << "\t\t1\tPCF (by default)\n";
 	cout << "\t\t2\tNSLV model\n";
 	cout << "\t\t3\tOriginal Chi strategy 2\n";
-	cout << "\nRule Selection Criteria: \n";
+	cout << "\t-acc <num> define the measurement of the performance of the Chi algorithm:\n";
+	cout << "\t\t0\tAccuracy (by default)\n";
+	cout << "\t\t1\tArea Under the ROC Curve (AUC)\n";
+	cout << "\t\t2\tGeometric Mean (GM)\n";
 	cout << "\t -RuleSelectionCriteria <num> or -RSC <num> to select the filtering rule process:\n";
+	cout << "\nRule Selection Criteria: \n";
 	cout << "\t\t0\tAll rules are considered (Value by default)\n";
 	cout << "\t\t1\tOnly are included the central rule of each example\n";
 	cout << "\t\t2\tThe best rule among those considered for each example is included\n";

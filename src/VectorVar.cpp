@@ -65,6 +65,7 @@ VectorVar::VectorVar(const char *nom_fich){
      lista[j].Asigna(n, nom_var, antecedente, unit, c_factor, inf, sup, va, vb, vc, vd, vname);
      oper[j].op=0;
      // imprimir los datos de las variables
+     //cout << "nom_var: " << nom_var << endl;
 
      Libera_Memoria_Var_aux(va,vb,vc,vd,vname);
    }

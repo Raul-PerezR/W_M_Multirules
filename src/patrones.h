@@ -24,11 +24,6 @@ struct TestResult
   double error_intrinseco;
 };
 
-void ProcesarResultados(TestResult &result);
-void PintaResultadosTraining(const TestResult &result);
-void PintaResultadosTest(const TestResult &result, bool conClases);
-void CalcularMediaTestResult(vector<TestResult> lista, TestResult &result);
-void SavePattern(const char *nomfich);
 
 struct info
 {
@@ -71,8 +66,19 @@ struct ProgramParameters
   double percentTestSet; //-PerCentOnTest
   bool NormalizedMu;     //-NormalizedMu
   bool wCP;              //-wCP
+  int acc;               //-acc 
+  bool allContinuous;    //-allContinuous
   string outputFile;     //-O
 };
+
+void ProcesarResultados(TestResult &result, ProgramParameters InputParam);
+
+void PintaResultadosTraining(const TestResult &result);
+void PintaResultadosTest(const TestResult &result, bool conClases, ProgramParameters InputParam);
+void CalcularMediaTestResult(vector<TestResult> lista, TestResult &result, ProgramParameters InputParam);
+void SavePattern(const char *nomfich);
+
+
 
 class Pattern
 {
@@ -106,8 +112,8 @@ public:
 
   void PintaPatrones();
 
-  void ExtraerPatronesBasicos(const example_set &Es, const VectorVar &V, TestResult &result);
-  void ExtraerPatronesBasicosOriginalWM(const example_set &Es, const VectorVar &V, TestResult &result);
+  void ExtraerPatronesBasicos(const example_set &Es, const VectorVar &V, TestResult &result, ProgramParameters InputParam);
+  void ExtraerPatronesBasicosOriginalWM(const example_set &Es, const VectorVar &V, TestResult &result, ProgramParameters InputParam);
   void ExtraerPatronesBasicosAproximacionTFMRuben_Veces(const example_set &Es, const VectorVar &V, TestResult &result, vector<vector<string>> &RSC, const ProgramParameters &InputParam);
   void ExtraerPatronesBasicosAproximacion_Umbral_w_Normalizado(const example_set &E, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam);
   void ExtraerPatronesBasicosAproximacionTFMRuben_Umbral(const example_set &Es, const VectorVar &V, TestResult &result, const ProgramParameters &InputParam);
@@ -123,7 +129,7 @@ public:
   void Aprendizaje_RecursivoUnEjemplo_WM_Umbral_Norm_and_Hamming(const example_set &Es, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int &considered, double Threshold, int distance, int Limit_distance, int sz);
   void Aprendizaje_RecursivoUnEjemplo_WM_TFM_Ruben_DistanciaHammning(const example_set &E, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, const vector<infoUp> &trozos, int distance, int Limit_distance, int sz);
 
-  void TestearPatronesBasicos(const example_set &Es, const VectorVar &V, TestResult &result);
+  void TestearPatronesBasicos(const example_set &Es, const VectorVar &V, TestResult &result, ProgramParameters InputParam);
   int TestearUnEjemploPatronesBasicos(const example_set &Es, int eje, const VectorVar &V, double &peso);
 
   int InferenciaRecursivaOptimalizadaConProfundidadLimitada(const example_set &E, const VectorVar &V, const int eje, double &mu, string &antecedenteSeleccionado, bool normalizada, int prof);
@@ -138,7 +144,7 @@ public:
                                          string cadena, int actualVar, double adapt, double &umbral, int &clase, const vector<infoUp> &trozos, string &antecedenteSeleccionado, int &TriesNunmber);
 
   void TestearRecursivoUnEjemplo(const example_set &E, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, double &umbral, int &clase, string &antecedenteSeleccionado);
-  void TestearRecursivo(const example_set &Es, const VectorVar &V, TestResult &result, bool normalizada, int TriesNumber);
+  void TestearRecursivo(const example_set &Es, const VectorVar &V, TestResult &result, bool normalizada, int TriesNumber, ProgramParameters InputParam);
   void TestearRecursivoUnEjemplo(const example_set &E, const VectorVar &V, const int eje, string cadena, int actualVar, double adapt, double &umbral, int &clase, string &antecedenteSeleccionado, bool normalizada, int &TriesNumber);
 
   int TesteoDistanciaHamming(const example_set &Es, const VectorVar &V, const int eje);
@@ -146,8 +152,8 @@ public:
 
   int TestearPatronesBasicosClassicOriginal_UnEjemplo(const example_set &Es, const VectorVar &V, const int eje, double &mu, string &antecedente, bool normalizada);
   int TestearPatronesBasicosClassic_UnEjemplo(const example_set &Es, const VectorVar &V, const int eje, double &mu, string &antecedente, bool normalizada);
-  void TestearPatronesBasicosClassic(const example_set &Es, const VectorVar &V, TestResult &result);
-  void TestearPatronesBasicosClassicDisparos(const example_set &Es, const VectorVar &V, TestResult &result, vector<pair<int, pair<string, double>>> &disparos);
+  void TestearPatronesBasicosClassic(const example_set &Es, const VectorVar &V, TestResult &result, ProgramParameters InputParam);
+  void TestearPatronesBasicosClassicDisparos(const example_set &Es, const VectorVar &V, TestResult &result, vector<pair<int, pair<string, double>>> &disparos, ProgramParameters InputParam);
   void CalculoExactoDeAdaptacionesAPatrones(const example_set &E, const VectorVar &V);
   void CalcularPesoYClases(int weightRuleModel);
   void Listar_Patrones();
