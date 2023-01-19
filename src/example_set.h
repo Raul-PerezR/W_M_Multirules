@@ -43,6 +43,7 @@ class example_set {
     int Not_Covered_Training_Example (int particion) const;
     int Not_Covered_Examples() const;
     void Examples_per_Class(int VarClass,int particion, int nclasses, int *n_example_in_class) const;
+    vector<double> example_set::Examples_per_Class(int VarClass, int nclasses) const;
     int N_Variables() const;
     void Remove(int *v, int tama);
     void Mark(int *v, int tama);

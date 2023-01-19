@@ -2631,7 +2631,19 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 		}
 
 
-		Patrones2.CalcularPesoYClases(InputParam.w);
+		vector<double>Cs;
+		if (InputParam.w == 4){
+		// Calculate Cs, vector of misclassification cost for each class and needed for PCF-CS weight model.
+			Cs = E_Par_Completo.Examples_per_Class(V.Consecuente(), V.SizeDomain(V.Consecuente()));
+			double max = Cs[0];
+			for (int i=1; i<Cs.size(); i++){
+				if (Cs[i]>max) max = Cs[i];
+			}
+			for (int i=0; i<Cs.size(); i++)
+				Cs[i] = max/Cs[i];
+		}
+
+		Patrones2.CalcularPesoYClases(InputParam.w, Cs);
 		fin = clock();
 		timetrain += fin - inicio;
 
@@ -3349,8 +3361,8 @@ int main(int argc, char *argv[])
 	if (!aux.empty()){
 		InputParam.w = atoi(aux.c_str());
 	}
-	if (InputParam.w< 0 or InputParam.w>3){
-		cout << "ERROR: weightRuleModel value must be in {1,3}.\n\n";
+	if (InputParam.w< 0 or InputParam.w>4){
+		cout << "ERROR: weightRuleModel value must be in {0,4}.\n\n";
 		MensajeAyuda();
 		exit(0);
 	}
@@ -3646,6 +3658,7 @@ void MensajeAyuda()
 	cout << "\t\t1\tPCF (by default)\n";
 	cout << "\t\t2\tNSLV model\n";
 	cout << "\t\t3\tOriginal Chi strategy 2\n";
+	cout << "\t\t4\tPCF-CS\n";
 	cout << "\t-acc <num> define the measurement of the performance of the Chi algorithm:\n";
 	cout << "\t\t0\tAccuracy (by default)\n";
 	cout << "\t\t1\tArea Under the ROC Curve (AUC)\n";

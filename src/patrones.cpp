@@ -3400,7 +3400,7 @@ void Pattern::CalculoExactoDeAdaptacionesAPatrones(const example_set &E, const V
 	}
 }
 
-void Pattern::CalcularPesoYClases(int weightRuleModel)
+void Pattern::CalcularPesoYClases(int weightRuleModel, const vector<double> &Cs)
 {
 	cout << "\n\nCalculating weights ....\n\n";
 	int auxC;
@@ -3532,6 +3532,38 @@ void Pattern::CalcularPesoYClases(int weightRuleModel)
 			}
 		}
 
+		break;
+	case 4:
+		/* PCF-CS */
+		for (auto it = diccionario.begin(); it != diccionario.end();)
+		{
+			auxC = 0;
+			sum = 0;
+			sum = it->second.conseq[0]*Cs[0];
+			for (int i = 1; i < n_clases; i++)
+			{
+				sum += it->second.conseq[i]*Cs[i];
+				if ((it->second.conseq[i]*Cs[i]) > it->second.conseq[auxC]*Cs[auxC])
+				{
+					auxC = i;
+				}
+			}
+
+			auto para_eliminar = it;
+			double temp = (it->second.conseq[auxC]*Cs[auxC] - (sum - (it->second.conseq[auxC]*Cs[auxC]))) / sum;
+			it++;
+
+			if (temp > 0)
+			{
+				para_eliminar->second.clase = auxC;
+				para_eliminar->second.weight = temp;
+			}
+			else
+			{
+				eliminadas++;
+				diccionario.erase(para_eliminar);
+			}
+		}
 		break;
 
 	default:

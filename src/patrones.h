@@ -155,7 +155,7 @@ public:
   void TestearPatronesBasicosClassic(const example_set &Es, const VectorVar &V, TestResult &result, ProgramParameters InputParam);
   void TestearPatronesBasicosClassicDisparos(const example_set &Es, const VectorVar &V, TestResult &result, vector<pair<int, pair<string, double>>> &disparos, ProgramParameters InputParam);
   void CalculoExactoDeAdaptacionesAPatrones(const example_set &E, const VectorVar &V);
-  void CalcularPesoYClases(int weightRuleModel);
+  void CalcularPesoYClases(int weightRuleModel, const vector<double> &Cs);
   void Listar_Patrones();
   pair<string,info> BetterPatron(const vector<string> & listaPatrones);
   pair<string,info> ObtenerPatron(string antecedente);
