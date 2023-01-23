@@ -273,22 +273,25 @@ void example_set::AddExampleFich(const char *nom_fich, int par, bool order)
       exit(1);
     }
 
+
     n_variable = new_var;
     old_n_example = n_example;
     Realojar(new_example);
 
     int tam = n_example - old_n_example + 1;
-    int vec[tam];
+
+    vector<int>vec(tam);
+    //int vec[tam];
 
     if (order)
     { // Aleatorio completamente
       for (int i = old_n_example; i < n_example; i++)
       {
         vec[i - old_n_example] = i;
-        // cout << vec[i-old_n_example] << " ";
+        cout << vec[i-old_n_example] << " ";
       }
 
-      std::random_shuffle(vec, vec + tam - 1);
+      std::random_shuffle(vec.begin(), vec.end());
     }
 
     for (int i = old_n_example; i < n_example; i++)
@@ -306,8 +309,8 @@ void example_set::AddExampleFich(const char *nom_fich, int par, bool order)
 
     for (int i = old_n_example; i < n_example; i++)
     {
-      //	cout << "A " << i-old_n_example << endl;
-      //	cout << "B " << vec[i-old_n_example] << endl;
+      //cout << "A " << i-old_n_example << endl;
+      //cout << "B " << vec[i-old_n_example] << endl;
       for (int j = 0; j < n_variable; j++)
         if (order)
         {
