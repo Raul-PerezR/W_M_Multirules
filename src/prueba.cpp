@@ -2540,9 +2540,27 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 	double igual_clase = 0, igual_adaptacion = 0, igual_regla = 0;
 	double media_patrones = 0;
 
+		// Para ver el número global de patrones que se obtendian usando todo el conjunto de ejemplos
+		/*Pattern Patrones2(V2);
+		vector<vector<string>> listaDeReglas;
+
+		InputParam.tm = 1;
+		Patrones2.ExtraerPatronesBasicosAproximacionTFMRuben_Veces(E, V2, aux, listaDeReglas, InputParam);
+		cerr << "Number of examples in training: " << E.N_Examples() << endl;
+		cerr << "    Number of pattern obtained: " << Patrones2.N_Pattern() << endl;
+		cerr << "          Example/Pattern rate: " << 1.0 * E.N_Examples() / (Patrones2.N_Pattern()) << endl;
+		ProcesarResultados(aux, InputParam);
+
+		char ch;
+		cin >> ch; */
+
+
+
+
 	for (int par = 0; par < num_par; par++)
 	{
 		Pattern Patrones2(V2);
+
 		cout << "\n===============\n Ejecucion " << par << "\n===============\n";
 
 		example_set E_Par_Completo = E.Extract_Training_Set(par, V2.Consecuente(), 0);
@@ -3503,6 +3521,10 @@ int main(int argc, char *argv[])
 	num_par = item_par;
 	//E.OrderByClass(1, V.Consecuente());
 
+	vector<double> NumClassVector = E.Examples_per_Class(V.Consecuente(), V.SizeDomain(V.Consecuente()));
+	for (int i=0; i< V.SizeDomain(V.Consecuente()); i++){
+		cout << "Class " << i << ": " << NumClassVector[i] << endl;
+	}
 	cout << "Loading process finished ..." << endl;
 	fichname = extract_noun(fichname);
 

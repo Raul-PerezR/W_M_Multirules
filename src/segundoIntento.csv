@@ -28,4 +28,3 @@ covtype_2_vs_1 7 10 Global 495141.000000 71214.100000 89.700510 10.299490 88.899
 census 7 9 Global 142521.000000 84651.500000 99.483663 0.516337 46.329312 96.594257 3.405743 52.037245 5.406950 0.000000 0.611468 0.000000 0.000000 0.000000
 ./W_M_Multirules -e ../../../aprendizajegenetico/BigDataBases/fars_0_vs_4_/fars_0_vs_4_ -nlabel 7 -LM 1 -tm 1 -IM 4 -Nit
 fars_0_vs_4_ 7 5 Global 62123.000000 42144.700000 100.000000 0.000000 41.115189 100.000000 0.000000 58.884811 1.955950 0.000000 0.214526 0.000000 0.000000 0.000000
-./W_M_Multirules -e /home/fgr/SoftwarePropio/aprendizajegenetico/Convert/KDDCup99_DOS_vs_normal/KDDCup99_DOS_vs_normal -nlabel 3 -LM 1 -tm 1 -IM 4 -Nit -allContinuous
