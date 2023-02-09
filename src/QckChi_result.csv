@@ -1,5 +1,5 @@
-Database Lab  #Cont  Global  #Ex #Rules #Train #ErrorTrain #Test #TestWNC #Error %NC TrainTime TimeInferTrain TestTime
-===================== parameter experiment: -nlabel 3 -LM 1 -IM 4 -Nit  -O./QckChi_result.csv
+Database Lab #Cont Global #Ex #Rules #Train #ErrorTrain #Test #TestWNC #Error %NC TrainTime TimeInferTrain TestTime
+===================== parameter experiment: -nlabel 3 -LM 1 -IM 4 -Nit -O./QckChi_result.csv
 abalone 3 7 Global 4174.000000 26.600000 26.622478 73.377522 11.475803 11.522733 88.477267 0.407283 0.038691 0.000000 0.011366 0.000000 0.000000 0.000000
 adult 3 6 Global 45222.000000 14577.800000 88.239991 11.760009 67.535713 81.006313 18.993687 16.629074 0.621978 0.000000 0.076963 0.000000 0.000000 0.000000
 australian 3 7 Global 690.000000 350.000000 94.235105 5.764895 69.855072 82.393162 17.606838 15.217391 0.008228 0.000000 0.000880 0.000000 0.000000 0.000000
@@ -36,8 +36,8 @@ vowel 3 11 Global 990.000000 279.600000 72.087542 27.912458 64.242424 64.242424 
 winequality-red 3 11 Global 1599.000000 219.700000 65.902300 34.097700 52.032520 52.097683 47.902317 0.125078 0.019048 0.000000 0.005385 0.000000 0.000000 0.000000
 winequality-white 3 11 Global 4898.000000 260.900000 54.763849 45.236151 41.261739 41.287028 58.712972 0.061249 0.064612 0.000000 0.024879 0.000000 0.000000 0.000000
 ===========================================================================================================================
-===================== parameter experiment: -nlabel 3 -LM 1 -IM 4 -Nit -wCP  -O./QckChi_result.csv
-Database Lab  #Cont  Global  #Ex #Rules #Train #ErrorTrain #Test #TestWNC #Error %NC TrainTime TimeInferTrain TestTime
+===================== parameter experiment: -nlabel 3 -LM 1 -IM 4 -Nit -wCP -O./QckChi_result.csv
+Database Lab #Cont Global #Ex #Rules #Train #ErrorTrain #Test #TestWNC #Error %NC TrainTime TimeInferTrain TestTime
 abalone 3 7 Global 4174.000000 1.200000 26.622478 73.377522 0.023958 5.555556 94.444444 99.568759 0.092450 0.000000 0.020200 0.000000 0.000000 0.000000
 adult 3 6 Global 45222.000000 14577.800000 88.239991 11.760009 67.969130 81.526179 18.473821 16.629074 115.650221 0.000000 0.068905 0.000000 0.000000 0.000000
 australian 3 7 Global 690.000000 350.000000 94.235105 5.764895 71.449275 84.273504 15.726496 15.217391 0.053709 0.000000 0.000785 0.000000 0.000000 0.000000

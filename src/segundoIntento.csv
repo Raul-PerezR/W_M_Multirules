@@ -1,3 +1,4 @@
+Database Lab #Cont Global #Ex #Rules #Train #ErrorTrain #Test #TestWNC #Error %NC TrainTime Nose TestTime
 ./W_M_Multirules -e /home/fgr/SoftwarePropio/aprendizajegenetico/Convert/KDDCup99_DOS_vs_normal/KDDCup99_DOS_vs_normal -nlabel 3 -LM 1 -tm 1 -IM 4 -Nit
 KDDCup99_DOS_vs_normal 3 33 Global 4856151.000000 4570.100000 99.954806 0.045194 99.945698 99.955022 0.044978 0.009328 161.324881 0.000000 11.580222 0.000000 0.000000 0.000000
 ./W_M_Multirules -e /home/fgr/SoftwarePropio/aprendizajegenetico/Convert/poker_0_vs_1/poker_0_vs_1 -nlabel 3 -LM 1 -tm 1 -IM 4 -Nit
