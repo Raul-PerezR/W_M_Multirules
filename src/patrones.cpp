@@ -204,13 +204,24 @@ void ProcesarResultados(TestResult &result, ProgramParameters InputParam)
 		result.error_intrinseco = 100.0 - result.acierto_sinNoCubiertos;
 		break;
 	case 1: /* AUC */
-		double TPrate, FPrate, TPrate_sinNC, FPrate_sinNC;
+double TP, FP, FN, TN;
+		TP = result.acc[0];
+		TN = result.acc[1];
+		FP = result.cubiertos[0] - result.acc[0];
+		FN = result.cubiertos[1] - result.acc[1];
 
-	    TPrate = (1.0*result.acc[0])/(result.cubiertos[0]+result.no_cubiertos[0]);
-		FPrate = (1.0*(result.cubiertos[1]+result.no_cubiertos[1]-result.acc[1]))/(result.cubiertos[1]+result.no_cubiertos[1]);
+		double TPrate, FPrate, Specificity, X, TPrate_sinNC, FPrate_sinNC;
 
-	    TPrate_sinNC = (1.0*result.acc[0])/(result.cubiertos[0]);
-		FPrate_sinNC = (1.0*(result.cubiertos[1]-result.acc[1]))/(result.cubiertos[1]);
+		TPrate = TP / (TP + FN); // Sensibility
+		FPrate = FP / (FP + TN);
+		Specificity = TN / (TN + FP);
+		X = 1 - Specificity;
+
+		// TPrate = (1.0*result.acc[0])/(result.cubiertos[0]+result.no_cubiertos[0]);
+		// FPrate = (1.0*(result.cubiertos[1]+result.no_cubiertos[1]-result.acc[1]))/(result.cubiertos[1]+result.no_cubiertos[1]);
+
+		TPrate_sinNC = (1.0 * result.acc[0]) / (result.cubiertos[0]);
+		FPrate_sinNC = (1.0 * (result.cubiertos[1] - result.acc[1])) / (result.cubiertos[1]);
 
 		for (int i = 0; i < result.acc.size(); i++)
 		{
@@ -220,13 +231,30 @@ void ProcesarResultados(TestResult &result, ProgramParameters InputParam)
 
 		total = total_no_cubiertos + total_cubiertos;
 
+		// result.acierto_sinNoCubiertos = (1.0 + TPrate_sinNC + FPrate_sinNC) / 2;
+		result.acierto_global = (1.0 + TPrate - FPrate) / 2.0;
 
-		result.acierto_sinNoCubiertos = (1.0 + TPrate_sinNC - FPrate_sinNC) / 2;
-		result.acierto_global = (1.0 + TPrate - FPrate) / 2;
-
+		//result.acierto_global = (result.S0 - result.acc[0] * (result.acc[0] + 1) / 2) / (result.acc[0] * result.acc[1]);
+		result.acierto_sinNoCubiertos = result.acierto_global;
 
 		result.error_intrinseco = 1 - result.acierto_sinNoCubiertos;
 
+		/*cout << "TPrate: " << TPrate << "   FPrate: " << FPrate << " TPrate_SNC: " << TPrate_sinNC << "  FPrate_SNC: " << FPrate_sinNC << endl;
+		cout << "Specificity: " << Specificity << "  FPR: " << X << endl;
+		cout << "Acierto_global: " << result.acierto_global << endl;*/
+
+		// Nueva versión basada en el cálculo propuesto en el artículo "Using AUC and Accuracy in Evaluating Learning Algorithms"
+		// AUC = (S0 - n0(n0+1)/2)/n0n1
+
+		//result.acierto_global = (result.S0 - result.acc[0] * (result.acc[0] + 1) / 2) / (result.acc[0] * result.acc[1]);
+
+		/*cout << "S0 = " << result.S0;
+		cout << "  n0 = " << result.acc[0];
+		cout << "  n1 = " << result.acc[1];
+		cout << "  acierto = " << result.acierto_global << endl;*/
+
+		// char ch;
+		// cin >> ch;
 
 		break;
 
