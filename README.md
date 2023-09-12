@@ -81,5 +81,3 @@ Result of 10 cross-validation on the *census* database learning with *Classic CH
 ##### ./W_M_Multirules -e ../data/satimage/satimage -LM 2 -times 5 -nlabel 3 -maxrules 1024 -size 1000000 
 Result of 10 cross-validation on the *satimage* database learning with *Amount Version of CHI algorithm*, considering 5 antecedents for each example, infering with *Heuristic Neighborhood Inference* taking 5 uniformly distributed labels and setting the inference parameter on the maximum number of rule to search in the example neighbor to 2^10 = 1024, and it is not permitted more than 1000000 rules in the final rule set.
 
-# W_M_Multirules
-# W_M_Multirules
