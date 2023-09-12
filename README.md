@@ -46,7 +46,7 @@ Learning Parameters:
 * * `4` PCF-CS
 * `-acc <num>` define the measurement of the performance of the algorithm:
 * * `0` Accuracy (by default)
-* * `1` No defined
+* * `1` Area Under the ROC Curve (AUC)
 * * `2` Geometric Mean (GM)
 
 Rule Filtering Parameters: 
