@@ -221,8 +221,8 @@ void ProcesarResultados(TestResult &result, ProgramParameters InputParam)
 		total = total_no_cubiertos + total_cubiertos;
 
 
-		result.acierto_sinNoCubiertos = (1.0 + TPrate_sinNC + FPrate_sinNC) / 2;
-		result.acierto_global = (1.0 + TPrate + FPrate) / 2;
+		result.acierto_sinNoCubiertos = (1.0 + TPrate_sinNC - FPrate_sinNC) / 2;
+		result.acierto_global = (1.0 + TPrate - FPrate) / 2;
 
 
 		result.error_intrinseco = 1 - result.acierto_sinNoCubiertos;
