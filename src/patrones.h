@@ -49,6 +49,7 @@ struct infoUp
 
 struct ProgramParameters
 {
+  string seedName;       // Name or descriptor associated with the data file name.
   int num_par;           // Partition Number
   bool Nit;              //-NotInferenceTraining
   int LM;                //-LearningModel
@@ -69,6 +70,7 @@ struct ProgramParameters
   int acc;               //-acc 
   bool allContinuous;    //-allContinuous
   string outputFile;     //-O
+  bool saveFileRule;     //-saveFileRule
 };
 
 void ProcesarResultados(TestResult &result, ProgramParameters InputParam);
@@ -110,7 +112,6 @@ public:
   void CambiarDiccionario(const unordered_map<string, info> &new_dicionario);
 
 
-  void PintaPatrones();
 
   void ExtraerPatronesBasicos(const example_set &Es, const VectorVar &V, TestResult &result, ProgramParameters InputParam);
   void ExtraerPatronesBasicosOriginalWM(const example_set &Es, const VectorVar &V, TestResult &result, ProgramParameters InputParam);
@@ -156,9 +157,11 @@ public:
   void TestearPatronesBasicosClassicDisparos(const example_set &Es, const VectorVar &V, TestResult &result, vector<pair<int, pair<string, double>>> &disparos, ProgramParameters InputParam);
   void CalculoExactoDeAdaptacionesAPatrones(const example_set &E, const VectorVar &V);
   void CalcularPesoYClases(int weightRuleModel, const vector<double> &Cs);
-  void Listar_Patrones();
   pair<string,info> BetterPatron(const vector<string> & listaPatrones);
   pair<string,info> ObtenerPatron(string antecedente);
+  void Listar_Patrones();
+  void PintaPatrones();
+  void SalvaEnFichero();
 
 
   int N_Pattern() { return diccionario.size(); }

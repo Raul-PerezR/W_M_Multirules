@@ -111,3 +111,5 @@ higgs 3 28 Global 11000000.000000 15874922.000000 0.580934 -1.000000 0.610308 0.
 higgs 3 28 Global 11000000.000000 31554720.400000 0.581835 -1.000000 0.614711 0.614721 -1.000000 0.001536 1060.502762 0.000000 539.176408 0.000000 0.000000 0.000000  
 ===================== parameter experiment: -nlabel 3 -LM 2 -times 1  -IM 4 -acc 2 -w 4 -Nit -O chi_bd_databases.results
 ===================== parameter experiment: -nlabel 3 -LM 2 -times 1  -IM 4 -acc 2 -w 4 -Nit -O chi_bd_databases.results
+===================== parameter experiment: -nlabel 3 -LM 2 -times 1  -IM 4 -acc 2 -w 4 -Nit -O chi_bd_databases.results
+===================== parameter experiment: -nlabel 3 -LM 2 -times 1  -IM 4 -acc 2 -w 4 -Nit -O chi_bd_databases.results
