@@ -174,6 +174,17 @@ void VectorVar::Pinta() const{
     lista[i].Pinta();
 }
 
+string VectorVar::SPinta() const{
+  string resultado;
+  resultado += "Variables = ";
+  resultado += to_string(numero);
+  resultado += "\n";
+  for (int i=0; i<numero; i++)
+    resultado += lista[i].SPinta();
+
+  return resultado;
+}
+
 
 void VectorVar::PrintVar(int variable) const{
   lista[variable].PrintVar();

@@ -246,6 +246,25 @@ void variable_t::Pinta() const{
   (*dominio).Pinta();
 }
 
+// Operador que pone en un string la definici�n de la variable
+string variable_t::SPinta() const{
+  string resultado;
+
+  if (dominio==0){
+    resultado += "Variable sin dominio asociado\n";
+    exit(1);
+  }
+  resultado += nombre;
+  resultado += "(";
+  resultado += to_string(dominio->Size());
+  resultado += ")";
+  resultado += ": ";
+  resultado += (*dominio).SPinta();
+  resultado += "\n";
+
+  return resultado;
+}
+
 
 // Operador que pone en el dispositivo de salida el nombre de la variable
 void variable_t::PrintVar() const{

@@ -31,6 +31,7 @@ public:
   double Adaptacion(double x, string etiqueta) const;
   double AdaptacionNorm(double x, string etiqueta) const;
   void Pinta() const;
+  string SPinta() const;
   void PrintVar() const;
   string SPrintVar() const;
   void PrintDomain(int value) const;

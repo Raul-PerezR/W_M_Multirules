@@ -40,6 +40,7 @@ class VectorVar {
 
     void Pinta(int variable) const;
     void Pinta() const;
+    string SPinta() const;
     void PrintVar(int variable) const;
     string SPrintVar(int variable) const;
     void PrintDomain(int variable, int value) const;

@@ -2667,14 +2667,16 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 
 		//Patrones2.Listar_Patrones();
 
-		Patrones2.PintaPatrones();
+		if (InputParam.saveFileRule){
+			Patrones2.SalvaEnFichero(V2);
+			Pausa();
+		}
 
 		numeroTotalDePatrones = Patrones2.N_Pattern();
 		int pat_antes = Patrones2.N_Pattern();
 		set<string> Disparados;
 		clock_t t_infer_training = 0;
 
-		Pausa();
 
 		if (InputParam.Nit)
 		{
