@@ -2668,8 +2668,14 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 		//Patrones2.Listar_Patrones();
 
 		if (InputParam.saveFileRule){
-			Patrones2.SalvaEnFichero(V2);
-			Pausa();
+			string nomfich;
+			nomfich = InputParam.seedName;
+			nomfich += "_p";
+			nomfich += to_string(par);
+			nomfich += ".rules";
+			cout << "Saving ruleset in " << nomfich << " file....\n";
+			Patrones2.SalvaEnFichero(V2, nomfich);
+			cout << "Saved.\n";
 		}
 
 		numeroTotalDePatrones = Patrones2.N_Pattern();

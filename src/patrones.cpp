@@ -129,17 +129,20 @@ void Pattern::PintaPatrones()
 
 //-----------------------------------------------------------------------------------------------------
 // Salva la reglas a un fichero
-void Pattern::SalvaEnFichero(const VectorVar &V)
+void Pattern::SalvaEnFichero(const VectorVar &V, string nomfich)
 {
 	string sdominio = V.SPinta();
-	cout << sdominio << endl;
-	
+
+	ofstream f (nomfich.c_str());
+	f << sdominio << endl;
+
 	for (auto it9 = diccionario.begin(); it9 != diccionario.end(); it9++)
 	{
 		int clase = 0;
-		cout << it9->first << " [" << it9->second.clase << "] with w = " << it9->second.weight << endl;
+		f << it9->first << " [" << it9->second.clase << "] with w = " << it9->second.weight << endl;
 	}
 
+	f.close();
 }
 
 //-----------------------------------------------------------------------------------------------------

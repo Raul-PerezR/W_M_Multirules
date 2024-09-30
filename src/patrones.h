@@ -161,7 +161,7 @@ public:
   pair<string,info> ObtenerPatron(string antecedente);
   void Listar_Patrones();
   void PintaPatrones();
-  void SalvaEnFichero(const VectorVar &V);
+  void SalvaEnFichero(const VectorVar &V, string nomfich);
 
 
   int N_Pattern() { return diccionario.size(); }
