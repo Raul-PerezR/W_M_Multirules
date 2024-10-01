@@ -563,6 +563,19 @@ void domain_t::Pinta() const{
     label[i].Pinta();
 }
 
+//Operaci�n que pone en string la definici�n del dominio
+string domain_t::SPinta() const{
+  string resultado;
+  for (int i=0; i<numero-1; i++){
+    resultado += label[i].SPinta();
+    resultado += ", ";
+  }
+  resultado += label[numero-1].SPinta();
+
+  return resultado;
+}
+
+
 //Operaci�n que pone en el dispositivo de salida la etiqueta i-esima del dominio
 void domain_t::Pinta(int i) const{
   label[i].Pinta();

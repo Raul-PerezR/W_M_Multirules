@@ -2614,7 +2614,7 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 			break;
 		}
 
-		// Calcular el peso y la clase de cada regla de las aprendidas para el inferencia CLASICA
+		// Calcular el peso y la clase de cada regla de las aprendidas para la inferencia CLASICA
 
 		if (InputParam.wCP){
 			Patrones2.CalculoExactoDeAdaptacionesAPatrones(E_Par_Completo, V2);
@@ -2667,7 +2667,16 @@ vector<vector<double>> CalculoEstimadoSobrePatronesConNEtiquetas(int nlabels, ex
 
 		//Patrones2.Listar_Patrones();
 
-		//Patrones2.PintaPatrones();
+		if (InputParam.saveFileRule){
+			string nomfich;
+			nomfich = InputParam.seedName;
+			nomfich += "_p";
+			nomfich += to_string(par);
+			nomfich += ".rules";
+			cout << "Saving ruleset in " << nomfich << " file....\n";
+			Patrones2.SalvaEnFichero(V2, nomfich);
+			cout << "Saved.\n";
+		}
 
 		numeroTotalDePatrones = Patrones2.N_Pattern();
 		int pat_antes = Patrones2.N_Pattern();
@@ -3281,6 +3290,13 @@ int main(int argc, char *argv[])
 		MensajeAyuda();
 		exit(0);
 	}
+	else {
+		size_t pos = fichname.rfind('/');
+		if (pos == string::npos)
+			InputParam.seedName = fichname;
+		else 
+			InputParam.seedName = fichname.substr(pos+1, fichname.length()-pos);
+	}
 
     // Select Learning Model
 	//	1.Classic Chi Algorithm. By default
@@ -3469,6 +3485,13 @@ int main(int argc, char *argv[])
 	if (!aux.empty())
 		InputParam.outputFile = aux;
 
+	// Parametro para salvar las reglas en ficheros
+
+	InputParam.saveFileRule = false;
+	if (input.cmdOptionExists("-saveFileRule"))
+	{
+		InputParam.saveFileRule = true;
+	}
 
 	// Inicio del proceso
 
@@ -3659,6 +3682,7 @@ void MensajeAyuda()
 	cout << "\t -sd <num> seed for the random number generator. By default sd = 0 \n";
 	cout << "\t -h or -help the description of how to use this program.\n";
 	cout << "\t -O <path/filename> output file with results (by default [./patrBasicos.csv]).\n";
+	cout << "\t -saveFileRule save the file with the rule set obtained (by default disable)\n";
 	cout << "\nLearning Parameters: \n";
 	cout << "\t -LearningModel <num> or -LM <num> to select the learning model:\n";
 	cout << "\t\t1\tClassic Chi Algorithm. Selected by default\n";
@@ -3685,8 +3709,8 @@ void MensajeAyuda()
 	cout << "\t\t0\tAccuracy (by default)\n";
 	cout << "\t\t1\tArea Under the ROC Curve (AUC)\n";
 	cout << "\t\t2\tGeometric Mean (GM)\n";
-	cout << "\t -RuleSelectionCriteria <num> or -RSC <num> to select the filtering rule process:\n";
 	cout << "\nRule Selection Criteria: \n";
+	cout << "\t-RuleSelectionCriteria <num> or -RSC <num> to select the filtering rule process:\n";
 	cout << "\t\t0\tAll rules are considered (Value by default)\n";
 	cout << "\t\t1\tOnly are included the central rule of each example\n";
 	cout << "\t\t2\tThe best rule among those considered for each example is included\n";

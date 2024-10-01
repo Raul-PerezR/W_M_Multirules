@@ -39,6 +39,7 @@ class domain_t {
 
 
      void Pinta() const;
+     string SPinta() const;
      void Pinta(int i) const;
      void Print(int i) const;
      string SPrint(int i) const;
