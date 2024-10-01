@@ -1,0 +1,4 @@
+workspace.code-workspace
+src/*.sh
+src/*.o
+src/W_M_Multirules

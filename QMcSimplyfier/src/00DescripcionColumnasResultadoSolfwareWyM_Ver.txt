@@ -1,0 +1,18 @@
+# Leyenda de cada columna de la salida del software en su columna más larga
+ 1. Nombre de la base de datos
+ 2. Numero de Etiquetas usadas en la definicion del dominio difuso.
+ 3. Numero de Variables continuas
+ 4. Global
+ 5. Numero Global de ejemplos
+ 6. Numero Global de patrones obtenidos usando todos los ejemplos
+ 7. Porcentaje de Acierto global
+ 8. Porcentaje de Error global
+ 9. Porcentaje Medio de Acierto en la validacion cruzada
+10. Porcentaje Medio de Acierto sin considerar los no cubiertos en la validacion cruzada
+11. Porcentaje Medio de error (no considerando error los ejemplos no cubiertos) en la validacion cruzada
+12. Porcentaje Medio de ejemplos no cubiertos en la validacion cruzada
+13. Tiempo medio consumido por el proceso de aprendizaje en la validacion cruzada
+14. Tiempo medio consumido por el proceso de inferencia en tiempo real
+15. Tiempo medio consumido por el proceso de inferencia en tiempo de consumo de CPU
+16. Porcentaje medio en el que coincide la clase de regla que si dispara en la inferencia clásica y la no clásica en la validacion cruzada
+17. Porcentaje medio en el que coincide la regla que si dispara en la inferencia clásica y la no clásica en la validacion cruzada

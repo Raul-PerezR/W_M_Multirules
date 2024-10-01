@@ -1,0 +1,30 @@
+\begin{table}
+\begin{tabular}{|c|c|c|l|}
+\hline
+ labels & h0 & p-value & decision \\
+ \hline
+    & Test(WM) $==$ Test(QChi) & 0.03656968 & Rejected \\
+    & Test(WM) $\geq$ Test(QChi) & 0.01828484 & Rejected \\
+    & & & \\
+\cline{2-4}
+  3 & Time(WM) $==$ Time(QChi) & $\leq$0.0000001 & Rejected \\
+    & & & \\
+\hline
+   & Test(WM) $==$ Test(QChi) & 0.636162 & Accepted \\
+    & & & \\
+\cline{2-4}
+  5 & Time(WM) $==$Time(QChi) & $\leq$0.0000001 & Rejected \\
+    & & & \\
+\hline
+   & Test(WM) $==$ Test(QChi) & 0.03590284 & Rejected \\
+   & Test(WM) $\geq$ Test(QChi) & 0.9829376 & Accepted \\
+    & & & \\
+\cline{2-4}
+  7 & Time(WM) $==$ Time(QChi) & $\leq$0.0000001 & Rejected \\
+    & & & \\
+\hline
+\multicolumn{4}{c}{}
+\end{tabular}
+\caption{\label{T_testEstadistico} Test estadísticos que comparan los resultados obtenidos por WM y QuickChi para diferentes granularidades.}
+\end{table}
+

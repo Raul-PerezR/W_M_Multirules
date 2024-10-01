@@ -1,0 +1,1 @@
+Version of fars_0_vs_4 but the nominal variables have been considered by continuous asumming its coding. The coding order in each nominal variable is the same that you can see in the classical version of this database.
