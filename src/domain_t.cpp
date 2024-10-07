@@ -568,7 +568,7 @@ string domain_t::SPinta() const{
   string resultado;
   for (int i=0; i<numero-1; i++){
     resultado += label[i].SPinta();
-    resultado += ", ";
+    resultado += " ";
   }
   resultado += label[numero-1].SPinta();
 
