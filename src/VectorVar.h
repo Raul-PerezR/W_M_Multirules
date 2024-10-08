@@ -2,6 +2,7 @@
 #define _VECTORVARH_
 #include <string>
 #include <fstream>
+#include <vector>
 #include "fuzzy_t.h"
 #include "domain_t.h"
 #include "variable_t.h"
@@ -36,6 +37,7 @@ class VectorVar {
     void Add_Variable(variable_t &var);
     void Add_Variable(variable_t &var, int op, int var1, int var2, double min, double max);
     void Add_Variable_Lista(variable_t &var, int op, int var1, int var2, double min, double max);
+    void Add_Variable(string varName, int nlabels, vector<string> labelName, vector<vector<string>> labelDef);
 
 
     void Pinta(int variable) const;

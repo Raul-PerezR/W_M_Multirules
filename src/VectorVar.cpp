@@ -840,6 +840,28 @@ void VectorVar::Add_Variable_Lista(variable_t &var, int op, int var1, int var2, 
 }
 
 
+void VectorVar::Add_Variable(string varName, int nlabels, vector<string> labelName, vector<vector<string>> labelDef){
+  //variable_t &var, int op, int var1, int var2, double min, double max){
+  domain_t dom;
+  double inf,sup;
+  dom.Asigna(nlabels, labelName, labelDef);
+  variable_t var(varName, true, false, dom);
+  variable_t *p = new variable_t [numero+1];
+  combinado *q = new combinado [numero+1];
+  for (int i=0; i<numero; i++){
+    p[i]=lista[i];
+    q[i]=oper[i];
+  }
+  p[numero] = var;
+  q[numero].op = 0;
+  numero++;
+  delete [] lista;
+  delete [] oper;
+  lista = p;
+  oper = q;
+}
+
+
 
 double Operacion (vectordouble w, combinado var){
   double a;

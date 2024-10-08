@@ -3,6 +3,7 @@
 #include <string>
 #include <cstdlib>
 #include <cstring>
+#include <vector>
 #include "domain_t.h"
 
 using namespace std;
@@ -317,7 +318,54 @@ void domain_t::Asigna(int n, double inf, double sup, double *a, double *b, doubl
 }
 
 
+// Operaci�n de asignaci�n a un objeto de la clase
+// La definici�n de cada etiqueta
+// que compone el dominio viene definida en parametros una matriz de 4 columnas y tantas filas como etiquetas.
+void domain_t::Asigna(int n, const vector<string> &labelName, const vector<vector<string>> & parametros){
+  numero=n;
+  double inf, sup;
+  //rango_sup=sup;
+  inf_inf=false;
+  sup_inf=false;
+  if (label!=0)
+    delete label;
+  label = new fuzzy_t[numero];
 
+  double v[4];
+
+  for (int i=0; i<numero; i++){
+      if (parametros[i][0] == "-inf") {
+        v[0] = atof((parametros[i][2].c_str()));
+        inf_inf = true;
+      }
+      else 
+        v[0] = atof((parametros[i][0].c_str()));
+
+      if (i==0) {rango_inf = v[0];}
+
+      if (parametros[i][1] == "-inf") 
+        v[1] = atof((parametros[i][2].c_str()));
+      else 
+        v[1] = atof((parametros[i][1].c_str()));
+
+      if (parametros[i][2] == "inf") {
+        v[2] = atof((parametros[i][1].c_str()));
+        sup_inf = true;
+      }
+      else 
+        v[2] = atof((parametros[i][2].c_str()));
+
+      if (parametros[i][3] == "inf") 
+        v[3] = atof((parametros[i][1].c_str()));
+      else 
+        v[3] = atof((parametros[i][3].c_str()));
+
+      if (i == numero-1) {rango_sup = v[3];}
+
+
+    label[i].Asigna(v[0],v[1],v[2],v[3],labelName[i]);
+  }
+}
 
 
 // Operaci�n de asignaci�n a un objeto de la clase

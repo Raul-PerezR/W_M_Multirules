@@ -2,6 +2,7 @@
 #define _DOMAIN_TH_
 #include <fstream>
 #include <string>
+#include <vector>
 #include "fuzzy_t.h"
 
 class domain_t {
@@ -24,6 +25,8 @@ class domain_t {
      void Asigna(int n, double inf, double sup, bool menosinf, bool masinf, int desp);     
      void Asigna(int n, double inf, double sup, double *a, double *b, double *c, double *d);
      void Asigna(int n, double inf, double sup, double *a, double *b, double *c, double *d, string *name);
+     void Asigna(int n, const vector<string> &labelName, const vector<vector<string>> & parametros);
+
      void Asigna_Closed_Interval(int n, double inf, double sup, double *a, double *b, double *c, double *d, string *name);
 
      int N_etiquetas() const;
