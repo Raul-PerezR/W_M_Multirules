@@ -740,6 +740,13 @@ int VectorVar::Consecuente() const {
   }
 }
 
+void VectorVar::SetConsequentVar(int pos){
+  for (int i=0; i<numero; i++){
+    lista[i].Put_Antecedent(true);
+  }
+  lista[pos].Put_Antecedent(false);
+}
+
 
 void VectorVar::SaveBinaryCode(ofstream &f) const {
   f.write(reinterpret_cast<const char *> (&numero),sizeof(int));

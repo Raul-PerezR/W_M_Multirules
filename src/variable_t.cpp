@@ -329,6 +329,10 @@ void variable_t::Put_Convert_Factor(double factor){
   convert_factor=factor;
 }
 
+void variable_t::Put_Antecedent(bool value){
+  antecedente = value;
+}
+
 
 
 // Operador que devuelve un objeto <fuzzy_t> con la definici�n de la etiqueta

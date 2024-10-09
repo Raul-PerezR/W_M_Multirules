@@ -46,6 +46,7 @@ public:
   double Get_Convert_Factor() const;
   void Put_Unit(int unidad);
   void Put_Convert_Factor(double factor);
+  void Put_Antecedent(bool value);
 
   double Area(int lab) const;
   fuzzy_t FuzzyLabel(int lab) const;

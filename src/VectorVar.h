@@ -91,6 +91,8 @@ class VectorVar {
     double Inf_Range(int var) const;
     double Sup_Range(int var) const;
     int Consecuente() const;
+    void SetConsequentVar(int pos);
+
     void SaveBinaryCode(ofstream &f) const;
     void LoadBinaryCode(ifstream &f);
 
