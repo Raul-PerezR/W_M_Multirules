@@ -852,7 +852,7 @@ void VectorVar::Add_Variable(string varName, int nlabels, vector<string> labelNa
   domain_t dom;
   double inf,sup;
   dom.Asigna(nlabels, labelName, labelDef);
-  variable_t var(varName, true, false, dom);
+  variable_t var(varName, true, true, dom);
   variable_t *p = new variable_t [numero+1];
   combinado *q = new combinado [numero+1];
   for (int i=0; i<numero; i++){

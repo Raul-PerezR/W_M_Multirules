@@ -334,6 +334,8 @@ void domain_t::Asigna(int n, const vector<string> &labelName, const vector<vecto
   double v[4];
 
   for (int i=0; i<numero; i++){
+    inf_inf = false;
+    sup_inf = false;
       if (parametros[i][0] == "-inf") {
         v[0] = atof((parametros[i][2].c_str()));
         inf_inf = true;
@@ -351,7 +353,7 @@ void domain_t::Asigna(int n, const vector<string> &labelName, const vector<vecto
       if (parametros[i][2] == "inf") {
         v[2] = atof((parametros[i][1].c_str()));
         sup_inf = true;
-      }
+     }
       else 
         v[2] = atof((parametros[i][2].c_str()));
 
@@ -363,7 +365,7 @@ void domain_t::Asigna(int n, const vector<string> &labelName, const vector<vecto
       if (i == numero-1) {rango_sup = v[3];}
 
 
-    label[i].Asigna(v[0],v[1],v[2],v[3],labelName[i]);
+    label[i].Asigna(v[0],v[1],v[2],v[3],labelName[i], inf_inf, sup_inf);
   }
 }
 

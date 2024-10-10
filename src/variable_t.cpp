@@ -262,6 +262,7 @@ string variable_t::SPinta() const{
   resultado += (*dominio).SPinta();
   resultado += "\n";
 
+
   return resultado;
 }
 
