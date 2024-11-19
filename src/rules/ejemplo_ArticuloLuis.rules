@@ -1,0 +1,20 @@
+Variables = 6
+SepalLength(3): L0/2 [-inf,-inf,4.3,6.1] L1/2 [4.3,6.1,6.1,7.9] L2 [6.1,7.9,inf,inf]
+SepalWidth(3): L0/2 [-inf,-inf,2,3.2] L1/2 [2,3.2,3.2,4.4] L2 [3.2,4.4,inf,inf]
+PetalLength(3): L0/2 [-inf,-inf,1,3.95] L1/2 [1,3.95,3.95,6.9] L2 [3.95,6.9,inf,inf]
+PetalWidth(3): L0/2 [-inf,-inf,0.1,1.3] L1/2 [0.1,1.3,1.3,2.5] L2 [1.3,2.5,inf,inf]
+PetalWidth(3): L0/2 [-inf,-inf,0.1,1.3] L1/2 [0.1,1.3,1.3,2.5] L2 [1.3,2.5,inf,inf]
+Class(3): Iris-setosa [-inf,-inf,0,0] Iris-versicolor [1,1,1,1] Iris-virginica [2,2,inf,inf]
+
+100100010001100 [0] with w = 1
+100010010001100 [0] with w = 1
+100001010001100 [0] with w = 1
+100100100001100 [0] with w = 1
+010100100001100 [0] with w = 1
+001100100010100 [0] with w = 1
+100100010001100 [1] with w = 1
+100010010001100 [1] with w = 1
+100001010001100 [1] with w = 1
+100100100001100 [2] with w = 1
+010100100001100 [2] with w = 1
+001100100010100 [2] with w = 1
