@@ -18,7 +18,8 @@ Parameters Basic:
 * `-nlabel <num>` number of labels used by discretize continuous variable. By default nlabel = 2  
 * `-sd <num>` seed for the random number generator. By default sd = 0 
 * `-h` or `-help` how to use this program.
-* `-O <path/filename>` output file with results (by default [./patrBasicos.csv]).  
+* `-O <path/filename>` output file with results (by default [./patrBasicos.csv]).
+* `-saveFileRule` save the file with the rule set obtained (by default disable).
 
 
 Learning Parameters: 
@@ -36,7 +37,6 @@ Learning Parameters:
 * `-NotInferenceTraining` or `-Nit` does not apply real inference on training set (it is an estimation obtained from the learning process). By default not included
 * `-weightCalculateProcess` or `-wCP` (by default is off, that is, it is calculated by quick new version)
 * `-NormalizedMu` uses the normalized adaptation degrees (by default the normalization is not used).
-* `-weightCalculateProcess <num>` or `-wCP <num>` activate exhaustive traditional computation for obtaining the weight of the rule.
 * `-allContinuous` actived considers all variables (nominals included) like continuous (by default this parameter is false)
 * `-weightRuleModel <num>` or `-w <num>` define how rule's weight is calculated by the QChi algorithm:
 * * `0` All rules with weight = 1
