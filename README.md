@@ -71,8 +71,8 @@ Inference Parameters:
 
 ## Some examples
 
-##### ./W_M_Multirules -e ../data/texture/texture -nlabel 5
-Result of 10 cross-validation on the *texture* database, learning with *Classic CHI algorithm* and infering with *Heuristic Neighborhood Inference* taking 5 uniformly distributed labels cutoff at 0.5 over the universe of discourse of continuous variables.
+##### ./W_M_Multirules -e ../data/texture/texture -nlabel 5 -wCP
+Result of 10 cross-validation on the *texture* database, learning with *Classic CHI algorithm* (*Wang and Mendel algorithm*) and infering with *Heuristic Neighborhood Inference* taking 5 uniformly distributed labels cutoff at 0.5 over the universe of discourse of continuous variables.
 
 ##### ./W_M_Multirules -e ../data/census/census -IM 4 -nlabel 5 -maxrules 1024
 Result of 10 cross-validation on the *census* database learning with *Classic CHI algorithm* and infering with *Heuristic Neighborhood Inference* taking 5 uniformly distributed labels and setting the inference parameter on the maximum number of rule to search in the example neighbor to 2^10 = 1024.
